@@ -13,14 +13,15 @@ class CreateContentAction
     /**
      * @param Contentable $contentable
      * @param TextData[]  $texts
+     * @param string|null $key
      * @return Content
      * @throws Throwable
      */
-    public function __invoke(Contentable $contentable, array $texts): Content
+    public function __invoke(Contentable $contentable, array $texts, string $key = null): Content
     {
         $translation = (new CreateTranslationAction)(
             new TranslationData(
-                key: collect($texts)->firstWhere('lang', 'en')->value,
+                key: isset($key) ?: collect($texts)->firstWhere('lang', 'en')->value,
                 texts: $texts
             )
         );

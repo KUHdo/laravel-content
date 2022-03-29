@@ -12,11 +12,12 @@ class Content
     /**
      * @param Contentable $contentable
      * @param TextData[]  $texts
+     * @param string|null $key
      * @return Models\Content
      * @throws Throwable
      */
-    public function create(Contentable $contentable, array $texts): Models\Content
+    public function create(Contentable $contentable, array $texts, string $key = null): Models\Content
     {
-        return (new CreateContentAction)($contentable, $texts);
+        return (new CreateContentAction)($contentable, $texts, $key);
     }
 }
