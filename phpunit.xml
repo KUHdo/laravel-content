@@ -27,12 +27,12 @@
         <report>
             <html outputDirectory="test-reports/coverage"/>
             <text outputFile="test-reports/coverage.txt"/>
-            <clover outputFile="test-reports/logs/clover.xml"/>
+            <clover outputFile="test-reports/clover.xml"/>
         </report>
     </coverage>
 
     <logging>
-        <junit outputFile="test-reports/report.junit.xml"/>
+        <junit outputFile="test-reports/junit.xml"/>
     </logging>
 
     <php>
