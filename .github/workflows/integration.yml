@@ -1,4 +1,4 @@
-name: Content CI
+name: Integration
 
 on:
   pull_request:
