@@ -1,0 +1,15 @@
+parameters:
+    level: 4
+
+    paths:
+        - src
+        - config
+        - database
+
+    tmpDir: test-reports/phpstan
+
+    checkOctaneCompatibility: true
+
+    checkModelProperties: true
+
+    checkMissingIterableValueType: false

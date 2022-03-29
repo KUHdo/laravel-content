@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         name="KUHdo Laravel Standards"
+         xsi:noNamespaceSchemaLocation="phpcs.xsd">
+    <description>KUHdo Laravel Standards</description>
+
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+
+    <file>src</file>
+    <file>config</file>
+    <file>tests</file>
+
+    <exclude-pattern>*/test-reports/*</exclude-pattern>
+    <exclude-pattern>*/database/*</exclude-pattern>
+    <exclude-pattern>*/docs/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <ini name="memory_limit" value="128M"/>
+
+    <!-- Function commenting mostly like PEAR -->
+    <rule ref="PEAR">
+        <exclude name="PEAR.Commenting.FileComment"/>
+        <exclude name="PEAR.Commenting.ClassComment"/>
+        <exclude name="PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+        <exclude name="PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingReturn"/>
+    </rule>
+
+    <!-- Almost complete PSR1 standard -->
+    <rule ref="PSR1">
+        <exclude-pattern>*.php</exclude-pattern>
+        <exclude name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
+    </rule>
+
+    <!-- Almost complete PSR2 standard -->
+    <rule ref="PSR2">
+        <exclude name="PSR2.Classes.PropertyDeclaration"/>
+    </rule>
+
+    <rule ref="Squiz.Commenting.BlockComment"/>
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.Commenting.EmptyCatchComment"/>
+    <rule ref="Squiz.Commenting.FunctionComment"/>
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
+    <rule ref="Squiz.Commenting.InlineComment"/>
+    <rule ref="Squiz.Commenting.LongConditionClosingComment"/>
+    <rule ref="Squiz.Commenting.PostStatementComment"/>
+    <rule ref="Squiz.Commenting.VariableComment"/>
+
+    <!-- Generic standard configuration -->
+    <rule ref="Generic"/>
+
+    <rule ref="Generic.Commenting.DocComment">
+        <exclude name="Generic.Commenting.DocComment.NonParamGroup"/>
+    </rule>
+    <rule ref="Generic.Commenting.DocComment.TagValueIndent"/>
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="150"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" value="50"/>
+            <property name="absoluteComplexity" value="100"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.Metrics.NestingLevel">
+        <properties>
+            <property name="nestingLevel" value="10"/>
+            <property name="absoluteNestingLevel" value="30"/>
+        </properties>
+    </rule>
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="indent" value="4"/>
+            <property name="tabIndent" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="Generic">
+        <exclude-pattern>*.php</exclude-pattern>
+        <exclude name="Generic.Strings.UnnecessaryStringConcat.Found)"/>
+    </rule>
+    <rule ref="Generic.Commenting.DocComment.MissingShort">
+        <include-pattern>*/app/*</include-pattern>
+    </rule>
+
+
+    <!-- Squiz standard configuration -->
+    <rule ref="Squiz.Commenting.BlockComment">
+        <!-- Make this sniff more sensitive to commented out code blocks. -->
+        <exclude name="Squiz.Commenting.DocCommentAlignment.SpaceAfterStar"/>
+    </rule>
+    <rule ref="Squiz.PHP.CommentedOutCode">
+        <properties>
+            <property name="maxPercentage" value="20"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.Strings.ConcatenationSpacing"/>
+
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <properties>
+            <property name="skipIfInheritdoc" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.MissingReturn">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
+    </rule>
+</ruleset>
