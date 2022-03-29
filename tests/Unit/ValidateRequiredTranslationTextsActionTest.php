@@ -39,7 +39,6 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
 
         $texts = [
             new TextData(lang: 'de', value: 'Hallo'),
-            new TextData(lang: 'en', value: 'Hello'),
         ];
 
         $this->expectException(MissingTranslationTextException::class);
