@@ -1,0 +1,2 @@
+providers:
+    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider
