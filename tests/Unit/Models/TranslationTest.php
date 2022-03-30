@@ -1,18 +1,21 @@
 <?php
 
-namespace KUHdo\Content\Tests\Unit;
+namespace KUHdo\Content\Tests\Unit\Models;
 
+use App;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use KUHdo\Content\Models\Text;
 use KUHdo\Content\Models\Translation;
 use KUHdo\Content\Tests\TestCase;
+use function collect;
 
 class TranslationTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
+     * @Covers \KUHdo\Content\Models\Translation::texts
      * @return void
      */
     public function testATranslationShouldBeCreated()
@@ -36,6 +39,7 @@ class TranslationTest extends TestCase
     }
 
     /**
+     * @Covers \KUHdo\Content\Models\Translation::texts
      * @return void
      */
     public function testATranslationShouldBeDeleted()
@@ -55,5 +59,25 @@ class TranslationTest extends TestCase
         ]));
 
         $texts->each(fn ($text) => $this->assertDatabaseMissing('texts', $text->toArray()));
+    }
+
+    /**
+     * @Covers \KUHdo\Content\Models\Translation::getCurrentTextAttribute
+     * @return void
+     */
+    public function testCurrentTextShouldReturnText()
+    {
+        config([
+            'content.locales' => ['en', 'es'],
+            'content.fallback' => 'es'
+        ]);
+
+        $translation = Translation::factory()->full()->create();
+
+        App::setLocale('de');
+        $this->assertEquals($translation->currentText, $translation->texts->firstWhere('lang', config('content.fallback')));
+
+        App::setLocale('en');
+        $this->assertEquals($translation->currentText, $translation->texts->firstWhere('lang', App::getLocale()));
     }
 }

@@ -3,6 +3,7 @@
 namespace KUHdo\Content\DataTransferObjects;
 
 use Illuminate\Contracts\Support\Arrayable;
+use KUHdo\Content\Models\Text;
 
 class TextData implements Arrayable
 {
@@ -12,6 +13,15 @@ class TextData implements Arrayable
      */
     public function __construct(public string $lang, public string $value)
     {
+    }
+
+    /**
+     * @param Text $text
+     * @return TextData
+     */
+    public static function make(Text $text): TextData
+    {
+        return new self(lang: $text->lang, value: $text->value);
     }
 
     /**

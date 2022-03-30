@@ -4,6 +4,7 @@ namespace KUHdo\Content\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use KUHdo\Content\Models\Content;
+use KUHdo\Content\Models\Translation;
 
 class ContentFactory extends Factory
 {
@@ -14,6 +15,10 @@ class ContentFactory extends Factory
      */
     public function definition(): array
     {
-        return [];
+        return [
+            'contentable_id' => $this->faker->randomDigitNotNull,
+            'contentable_type' => 'TestContentableClass',
+            'translation_id' => Translation::factory()->full()
+        ];
     }
 }
