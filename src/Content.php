@@ -28,6 +28,14 @@ class Content
     }
 
     /**
+     * @return TranslationData
+     */
+    public function getTranslation(): TranslationData
+    {
+        return $this->translation;
+    }
+
+    /**
      * @param Contentable $contentable
      * @return $this
      */

@@ -19,6 +19,6 @@ class ContentFactoryTest extends TestCase
         $content = Content::factory()->create();
 
         $this->assertNotNull($content->translation);
-        $this->assertCount(count(config('content.locales')),$content->translation->texts);
+        $this->assertCount(count(config('content.locales')), $content->translation->texts);
     }
 }

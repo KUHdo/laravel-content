@@ -3,6 +3,7 @@
 namespace KUHdo\Content\Tests\Unit\Facades;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use KUHdo\Content\DataTransferObjects\TranslationData;
 use KUHdo\Content\Facades\Content;
 use KUHdo\Content\Models\Content as ContentModel;
 use KUHdo\Content\Tests\Factories\TextDataFactory;
@@ -13,6 +14,24 @@ use KUHdo\Content\Tests\TestCase;
 class ContentTest extends TestCase
 {
     use RefreshDatabase;
+
+    /**
+     * @covers \KUHdo\Content\Content::__constructor
+     * @return void
+     */
+    public function testConstructor()
+    {
+        $this->assertNotNull((new \KUHdo\Content\Content)->getTranslation());
+    }
+
+    /**
+     * @covers \KUHdo\Content\Content::getTranslation
+     * @return void
+     */
+    public function testGetTranslation()
+    {
+        $this->assertInstanceOf(TranslationData::class, (new \KUHdo\Content\Content)->getTranslation());
+    }
 
     /**
      * @covers \KUHdo\Content\Content::for

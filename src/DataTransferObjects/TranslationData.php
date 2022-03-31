@@ -21,7 +21,7 @@ class TranslationData implements Arrayable
      */
     public static function make(Translation $translation): TranslationData
     {
-        return new self(key: $translation->key, texts: $translation->texts);
+        return new self(key: $translation->key, texts: $translation->texts->map(fn($text) => TextData::make($text))->all());
     }
 
     /**

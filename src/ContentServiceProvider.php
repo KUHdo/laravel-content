@@ -5,6 +5,9 @@ namespace KUHdo\Content;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ContentServiceProvider extends ServiceProvider
 {
     /**

@@ -4,7 +4,6 @@ namespace KUHdo\Content\Tests\Unit\Actions;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use KUHdo\Content\Actions\CreateContentAction;
-use KUHdo\Content\Models\Translation;
 use KUHdo\Content\Tests\Factories\TranslationDataFactory;
 use KUHdo\Content\Tests\Fixtures\Contentable;
 use KUHdo\Content\Tests\TestCase;
