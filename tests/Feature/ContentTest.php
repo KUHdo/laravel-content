@@ -8,6 +8,7 @@ use KUHdo\Content\DataTransferObjects\TextData;
 use KUHdo\Content\Facades\Content;
 use KUHdo\Content\Tests\Fixtures\Contentable;
 use KUHdo\Content\Tests\TestCase;
+use Str;
 
 class ContentTest extends TestCase
 {
@@ -19,19 +20,26 @@ class ContentTest extends TestCase
     public function testLocalizedTextShouldBeReturnedFromContent()
     {
         $texts = [
-            new TextData(lang: 'de', value: 'Hallo'),
-            new TextData(lang: 'en', value: 'Hello'),
-            new TextData(lang: 'fr', value: 'Bonjour'),
-            new TextData(lang: 'es', value: 'Hola'),
+            new TextData(lang: 'de', value: 'Hallo {VAR}'),
+            new TextData(lang: 'en', value: 'Hello {VAR}'),
+            new TextData(lang: 'fr', value: 'Bonjour {VAR}'),
+            new TextData(lang: 'es', value: 'Hola {VAR}'),
         ];
 
         $contentable = Contentable::factory()->create();
-        Content::create($contentable, $texts);
+        Content::for($contentable)->texts($texts)->save();
 
         collect(config('content.locales'))->each(function ($locale) use ($contentable, $texts) {
             App::setLocale($locale);
             $expected = collect($texts)->first(fn($text) => $text->lang === $locale)?->value;
-            $this->assertEquals($expected, $contentable->getContent());
+            $this->assertEquals(
+                $expected,
+                $contentable->getContent()
+            );
+            $this->assertEquals(
+                Str::replace("{VAR}", "World", $expected),
+                $contentable->getContent(['VAR' => 'World'])
+            );
         });
     }
 
@@ -45,7 +53,8 @@ class ContentTest extends TestCase
             new TextData(lang: 'en', value: 'Hello'),
         ];
 
-        $contentable = Contentable::factory()->create()->setContent($texts);
+        $contentable = Contentable::factory()->create();
+        Content::for($contentable)->texts($texts)->save();
 
         App::setLocale('fr');
 

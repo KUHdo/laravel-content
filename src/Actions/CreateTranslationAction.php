@@ -19,7 +19,11 @@ class CreateTranslationAction
     {
         $validatedTexts = collect((new ValidateRequiredTranslationTextsAction)($data->texts));
 
-        $translation = Translation::create(['key' => $data->key]);
+        $translation = Translation::create([
+            'key' => $data->key ?: collect($validatedTexts)
+                ->firstWhere('lang', config('content.default'))
+                ->value
+        ]);
         $texts = $validatedTexts->map(fn(TextData $data) => Text::create($data->toArray()));
         $translation->texts()->saveMany($texts);
 

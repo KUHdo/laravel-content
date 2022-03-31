@@ -1,11 +1,11 @@
 <?php
 
-namespace KUHdo\Content\Tests\Unit;
+namespace KUHdo\Content\Tests\Unit\Actions;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use KUHdo\Content\Actions\ValidateRequiredTranslationTextsAction;
-use KUHdo\Content\DataTransferObjects\TextData;
 use KUHdo\Content\Exceptions\MissingTranslationTextException;
+use KUHdo\Content\Tests\Factories\TextDataFactory;
 use KUHdo\Content\Tests\TestCase;
 use Throwable;
 
@@ -14,6 +14,7 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * @covers \KUHdo\Content\Actions\ValidateRequiredTranslationTextsAction
      * @throws Throwable
      */
     public function testValidatedTextsShouldBeReturned()
@@ -21,8 +22,8 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
         config(['content.required' => ['en', 'de']]);
 
         $texts = [
-            new TextData(lang: 'en', value: 'Hello'),
-            new TextData(lang: 'de', value: 'Hallo'),
+            TextDataFactory::new()->create(['lang' => 'en']),
+            TextDataFactory::new()->create(['lang' => 'de']),
         ];
 
         $result = (new ValidateRequiredTranslationTextsAction)($texts);
@@ -31,6 +32,7 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
     }
 
     /**
+     * @covers \KUHdo\Content\Actions\ValidateRequiredTranslationTextsAction
      * @throws Throwable
      */
     public function testExceptionShouldBeThrown()
@@ -38,7 +40,7 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
         config(['content.required' => ['en']]);
 
         $texts = [
-            new TextData(lang: 'de', value: 'Hallo'),
+            TextDataFactory::new()->create(['lang' => 'de']),
         ];
 
         $this->expectException(MissingTranslationTextException::class);

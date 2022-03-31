@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Query\Builder;
+use KUHdo\Content\Actions\InterpolateTextAction;
 use KUHdo\Content\Database\Factories\ContentFactory;
+use KUHdo\Content\DataTransferObjects\TextData;
 use KUHdo\Content\QueryBuilders\ContentQueryBuilder;
 
 class Content extends Model
@@ -57,5 +59,14 @@ class Content extends Model
     public function getTextAttribute(): string
     {
         return $this->translation()->first()->currentText->value;
+    }
+
+    /**
+     * @param array $vars
+     * @return string
+     */
+    public function text(array $vars): string
+    {
+        return (new InterpolateTextAction)(TextData::make($this->translation()->first()->currentText), $vars)->value;
     }
 }
