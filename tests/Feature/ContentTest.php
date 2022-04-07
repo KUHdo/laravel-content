@@ -2,10 +2,11 @@
 
 namespace KUHdo\Content\Tests\Feature;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
-use KUHdo\Content\DataTransferObjects\TextData;
 use KUHdo\Content\Facades\Content;
+use KUHdo\Content\Models\Text;
 use KUHdo\Content\Tests\Fixtures\Contentable;
 use KUHdo\Content\Tests\TestCase;
 use Str;
@@ -19,12 +20,12 @@ class ContentTest extends TestCase
      */
     public function testLocalizedTextShouldBeReturnedFromContent()
     {
-        $texts = [
-            new TextData(lang: 'de', value: 'Hallo {VAR}'),
-            new TextData(lang: 'en', value: 'Hello {VAR}'),
-            new TextData(lang: 'fr', value: 'Bonjour {VAR}'),
-            new TextData(lang: 'es', value: 'Hola {VAR}'),
-        ];
+        $texts = new Collection([
+            new Text(['lang' => 'de', 'value' => 'Hallo {VAR}']),
+            new Text(['lang' => 'en', 'value' => 'Hello {VAR}']),
+            new Text(['lang' => 'fr', 'value' => 'Bonjour {VAR}']),
+            new Text(['lang' => 'es', 'value' => 'Hola {VAR}']),
+        ]);
 
         $contentable = Contentable::factory()->create();
         Content::for($contentable)->texts($texts)->save();
@@ -48,10 +49,10 @@ class ContentTest extends TestCase
      */
     public function testFallbackTextShouldBeReturnedFromContent()
     {
-        $texts = [
-            new TextData(lang: 'de', value: 'Hallo'),
-            new TextData(lang: 'en', value: 'Hello'),
-        ];
+        $texts = new Collection([
+            new Text(['lang' => 'de', 'value' => 'Hallo']),
+            new Text(['lang' => 'en', 'value' => 'Hello']),
+        ]);
 
         $contentable = Contentable::factory()->create();
         Content::for($contentable)->texts($texts)->save();

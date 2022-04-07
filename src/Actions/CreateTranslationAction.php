@@ -2,30 +2,26 @@
 
 namespace KUHdo\Content\Actions;
 
-use KUHdo\Content\DataTransferObjects\TextData;
-use KUHdo\Content\DataTransferObjects\TranslationData;
-use KUHdo\Content\Models\Text;
+use Illuminate\Database\Eloquent\Collection;
 use KUHdo\Content\Models\Translation;
 use Throwable;
 
 class CreateTranslationAction
 {
     /**
-     * @param TranslationData $data
+     * @param Collection  $texts
+     * @param string|null $key
      * @return Translation
      * @throws Throwable
      */
-    public function __invoke(TranslationData $data): Translation
+    public function __invoke(Collection $texts, string $key = null): Translation
     {
-        $validatedTexts = collect((new ValidateRequiredTranslationTextsAction)($data->texts));
+        $validatedTexts = (new ValidateRequiredTranslationTextsAction)($texts);
 
-        $translation = Translation::create([
-            'key' => $data->key ?: collect($validatedTexts)
-                ->firstWhere('lang', config('content.default'))
-                ->value
-        ]);
-        $texts = $validatedTexts->map(fn(TextData $data) => Text::create($data->toArray()));
-        $translation->texts()->saveMany($texts);
+        $translation = new Translation;
+        $translation->key = $key ?: $validatedTexts->firstWhere('lang', config('content.default'))->value;
+        $translation->save();
+        $translation->texts()->saveMany($validatedTexts);
 
         return $translation;
     }

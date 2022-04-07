@@ -4,9 +4,8 @@ namespace KUHdo\Content\Tests\Unit\Actions;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use KUHdo\Content\Actions\CreateTranslationAction;
-use KUHdo\Content\DataTransferObjects\TranslationData;
-use KUHdo\Content\Tests\Factories\TextDataFactory;
-use KUHdo\Content\Tests\Factories\TranslationDataFactory;
+use KUHdo\Content\Models\Text;
+use KUHdo\Content\Models\Translation;
 use KUHdo\Content\Tests\TestCase;
 use Throwable;
 
@@ -21,11 +20,16 @@ class CreateTranslationActionTest extends TestCase
      */
     public function testTranslationShouldBeCreated()
     {
-        $translationData = TranslationDataFactory::new()->create();
+        $texts = Text::factory()
+            ->count(2)
+            ->sequence(['lang' => 'en'], ['lang' => 'de'])
+            ->make();
+        $key = 'TestKey';
 
-        $translation = (new CreateTranslationAction)($translationData);
+        $translation = (new CreateTranslationAction)($texts, $key);
 
         $this->assertModelExists($translation);
+        $this->assertEquals($translation->key, $key);
     }
 
     /**
@@ -38,17 +42,16 @@ class CreateTranslationActionTest extends TestCase
         $default = 'de';
         config(['content.default' => $default]);
 
-        $textData = [
-            TextDataFactory::new()->create(['lang' => 'de']),
-            TextDataFactory::new()->create(['lang' => 'en']),
-        ];
-        $translationData = new TranslationData(key: null, texts: $textData);
+        $texts = Text::factory()
+            ->count(2)
+            ->sequence(['lang' => 'en'], ['lang' => 'de'])
+            ->make();
 
-        $translation = (new CreateTranslationAction)($translationData);
+        $translation = (new CreateTranslationAction)($texts);
 
         $this->assertEquals(
             $translation->key,
-            collect($textData)->where('lang', $default)->first()->value
+            $texts->where('lang', $default)->first()->value
         );
     }
 }

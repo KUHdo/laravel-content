@@ -4,7 +4,7 @@ namespace KUHdo\Content\Tests\Unit\Actions;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use KUHdo\Content\Actions\CreateContentAction;
-use KUHdo\Content\Tests\Factories\TranslationDataFactory;
+use KUHdo\Content\Models\Translation;
 use KUHdo\Content\Tests\Fixtures\Contentable;
 use KUHdo\Content\Tests\TestCase;
 use Throwable;
@@ -16,11 +16,10 @@ class CreateContentActionTest extends TestCase
     /**
      * @covers \KUHdo\Content\Actions\CreateContentAction
      * @return void
-     * @throws Throwable
      */
     public function testContentShouldBeCreated()
     {
-        $translation = TranslationDataFactory::new()->create();
+        $translation = Translation::factory()->create();
         $contentable = Contentable::factory()->create();
 
         $content = (new CreateContentAction)($contentable, $translation);

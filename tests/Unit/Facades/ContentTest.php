@@ -3,9 +3,9 @@
 namespace KUHdo\Content\Tests\Unit\Facades;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use KUHdo\Content\DataTransferObjects\TranslationData;
 use KUHdo\Content\Facades\Content;
 use KUHdo\Content\Models\Content as ContentModel;
+use KUHdo\Content\Models\Text;
 use KUHdo\Content\Tests\Factories\TextDataFactory;
 use KUHdo\Content\Tests\Factories\TranslationDataFactory;
 use KUHdo\Content\Tests\Fixtures\Contentable;
@@ -14,24 +14,6 @@ use KUHdo\Content\Tests\TestCase;
 class ContentTest extends TestCase
 {
     use RefreshDatabase;
-
-    /**
-     * @covers \KUHdo\Content\Content::__constructor
-     * @return void
-     */
-    public function testConstructor()
-    {
-        $this->assertNotNull((new \KUHdo\Content\Content)->getTranslation());
-    }
-
-    /**
-     * @covers \KUHdo\Content\Content::getTranslation
-     * @return void
-     */
-    public function testGetTranslation()
-    {
-        $this->assertInstanceOf(TranslationData::class, (new \KUHdo\Content\Content)->getTranslation());
-    }
 
     /**
      * @covers \KUHdo\Content\Content::for
@@ -52,7 +34,7 @@ class ContentTest extends TestCase
      */
     public function testTextMethod()
     {
-        $text = TextDataFactory::new()->create();
+        $text = Text::factory()->make();
 
         $content = Content::text(lang: $text->lang, value: $text->value);
 
@@ -65,9 +47,9 @@ class ContentTest extends TestCase
      */
     public function testTextsMethod()
     {
-        $texts = TextDataFactory::new()->createAll();
+        $texts = Text::factory()->count(2)->make();
 
-        $content = Content::texts($texts->all());
+        $content = Content::texts($texts);
 
         $this->assertInstanceOf(\KUHdo\Content\Content::class, $content);
     }
@@ -91,12 +73,14 @@ class ContentTest extends TestCase
      */
     public function testSaveMethod()
     {
+        config(['content.required' => 'en']);
         $contentable = Contentable::factory()->create();
-        $translation = TranslationDataFactory::new()->create();
+        $texts = Text::factory()->count(2)->sequence(['lang' => 'en'], ['lang' => 'de'])->make();
+        $key = 'TestKey';
 
         $content = Content::for($contentable)
-            ->key($translation->key)
-            ->texts($translation->texts)
+            ->key($key)
+            ->texts($texts)
             ->save();
 
         $this->assertInstanceOf(ContentModel::class, $content);
@@ -108,13 +92,15 @@ class ContentTest extends TestCase
      */
     public function testCreateMethod()
     {
+        config(['content.required' => 'en']);
         $contentable = Contentable::factory()->create();
-        $translation = TranslationDataFactory::new()->create();
+        $texts = Text::factory()->count(2)->sequence(['lang' => 'en'], ['lang' => 'de'])->make();
+        $key = 'TestKey';
 
         $content = Content::create(
             contentable: $contentable,
-            texts: $translation->texts,
-            key: $translation->key
+            texts: $texts,
+            key: $key
         );
 
         $this->assertInstanceOf(ContentModel::class, $content);
