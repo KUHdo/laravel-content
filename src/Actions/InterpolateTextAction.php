@@ -2,8 +2,8 @@
 
 namespace KUHdo\Content\Actions;
 
+use Illuminate\Support\Str;
 use KUHdo\Content\Models\Text;
-use Str;
 
 class InterpolateTextAction
 {
