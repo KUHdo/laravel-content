@@ -3,8 +3,12 @@
 namespace KUHdo\Content;
 
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ContentServiceProvider extends ServiceProvider
 {
     /**
@@ -13,6 +17,11 @@ class ContentServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        Route::group([
+            'prefix' => config('content.prefix'),
+            'middleware' => config('content.middleware'),
+        ], fn() => $this->loadRoutesFrom(__DIR__.'/../routes/web.php'));
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

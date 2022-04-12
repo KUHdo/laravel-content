@@ -9,12 +9,16 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Query\Builder;
 use KUHdo\Content\Actions\InterpolateTextAction;
 use KUHdo\Content\Database\Factories\ContentFactory;
-use KUHdo\Content\DataTransferObjects\TextData;
 use KUHdo\Content\QueryBuilders\ContentQueryBuilder;
 
 class Content extends Model
 {
     use HasFactory;
+
+    /**
+     * @var array
+     */
+    public $guarded = [];
 
     /**
      * @return ContentFactory
@@ -67,6 +71,6 @@ class Content extends Model
      */
     public function text(array $vars): string
     {
-        return (new InterpolateTextAction)(TextData::make($this->translation()->first()->currentText), $vars)->value;
+        return (new InterpolateTextAction)($this->translation()->first()->currentText, $vars)->value;
     }
 }

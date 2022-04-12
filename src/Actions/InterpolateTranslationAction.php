@@ -2,21 +2,20 @@
 
 namespace KUHdo\Content\Actions;
 
-use KUHdo\Content\DataTransferObjects\TranslationData;
+use KUHdo\Content\Models\Translation;
 
 class InterpolateTranslationAction
 {
     /**
-     * @param TranslationData $translation
-     * @param array           $vars
-     * @return TranslationData
+     * @param Translation $translation
+     * @param array       $vars
+     * @return Translation
      */
-    public function __invoke(TranslationData $translation, array $vars): TranslationData
+    public function __invoke(Translation $translation, array $vars): Translation
     {
-        $translation->texts = collect($translation->texts)
-            ->map(fn($text) => (new InterpolateTextAction)($text, $vars))
-            ->all();
-
-        return $translation;
+        return $translation->replicate()->fill([
+            'texts' => $translation->texts
+                ->map(fn($text) => (new InterpolateTextAction)($text, $vars))
+        ]);
     }
 }

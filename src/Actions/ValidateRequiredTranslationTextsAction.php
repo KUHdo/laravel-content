@@ -2,22 +2,26 @@
 
 namespace KUHdo\Content\Actions;
 
-use KUHdo\Content\DataTransferObjects\TextData;
+use Illuminate\Database\Eloquent\Collection;
 use KUHdo\Content\Exceptions\MissingTranslationTextException;
+use KUHdo\Content\Models\Text;
 use Throwable;
 
 class ValidateRequiredTranslationTextsAction
 {
     /**
-     * @param TextData[] $texts
-     * @return TextData[]
+     * @param Collection|Text $texts
+     * @return Collection
      * @throws Throwable
      */
-    public function __invoke(array $texts): array
+    public function __invoke(Collection|Text $texts): Collection
     {
-        $missing = collect(config('content.required'))
-            ->filter(fn($lang) => !collect($texts)->contains(fn($value) => $value->lang === $lang));
+        if ($texts instanceof Text) {
+            $texts = Collection::make($texts);
+        }
 
+        $missing = collect(config('content.required'))
+            ->filter(fn($locale) => !$texts->contains('lang', $locale));
 
         throw_if(
             $missing->isNotEmpty(),

@@ -3,9 +3,9 @@
 namespace KUHdo\Content\Tests\Unit\QueryBuilders;
 
 use App;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use KUHdo\Content\Models\Text;
-use KUHdo\Content\Models\Translation;
 use KUHdo\Content\Tests\TestCase;
 
 class TextQueryBuilderTest extends TestCase
@@ -16,44 +16,66 @@ class TextQueryBuilderTest extends TestCase
      * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::current
      * @return void
      */
-    public function testMethodsShouldReturnTextQueryBuilderBasedOnLocalesAndOrderedByLatest()
+    public function testCurrent()
     {
-        $lang = 'de';
+        config(['content.locales' => ['en', 'de', 'es']]);
+        App::setLocale('de');
+
+        $oldText = Text::factory([
+            'lang' => App::getLocale()
+        ])->create();
+        $newText = Text::factory([
+            'lang' => App::getLocale(),
+            'created_at' => (new Carbon($oldText->created_at))->addSecond()
+        ])->create();
+
+        $this->assertEquals(Text::current()->first()->toArray(), $newText->toArray());
+        $this->assertEquals(Text::current()->get()[Text::current()->count() - 1]->toArray(), $oldText->toArray());
+    }
+
+    /**
+     * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::default
+     * @return void
+     */
+    public function testDefault()
+    {
         config([
             'content.locales' => ['en', 'de', 'es'],
-            'content.default' => 'es',
-            'content.fallback' => 'en'
+            'content.default' => 'es'
         ]);
-        App::setLocale($lang);
 
-        $translation = Translation::factory()->full()->create();
+        $oldText = Text::factory([
+            'lang' => config('content.default')
+        ])->create();
+        $newText = Text::factory([
+            'lang' => config('content.default'),
+            'created_at' => (new Carbon($oldText->created_at))->addSecond()
+        ])->create();
 
-        $newTexts = collect(config('content.locales'))
-            ->map(function ($locale) use ($translation) {
-                $text = Text::factory(['lang' => $locale, 'created_at' => now()->addSecond()])->create();
-                $translation->texts()->save($text);
-                $translation->save();
-                return $text;
-            });
+        $this->assertEquals(Text::default()->first()->toArray(), $newText->toArray());
+        $this->assertEquals(Text::default()->get()[Text::default()->count() - 1]->toArray(), $oldText->toArray());
+    }
 
-        collect([
-            [
-                'actual' => $translation->texts()->current()->first(),
-                'expected' => $newTexts->firstWhere('lang', App::getLocale()),
-            ],
-            [
-                'actual' => $translation->texts()->default()->first(),
-                'expected' => $newTexts->firstWhere('lang', config('content.default'))
-            ],
-            [
-                'actual' => $translation->texts()->fallback()->first(),
-                'expected' => $newTexts->firstWhere('lang', config('content.fallback'))
-            ]
-        ])->each(function ($value) use ($newTexts) {
-            $this->assertEquals($value['expected']->id, $value['actual']->id);
-            $this->assertEquals($value['expected']->lang, $value['actual']->lang);
-            $this->assertEquals($value['expected']->value, $value['actual']->value);
-            $this->assertEquals($value['expected']->created_at, $value['actual']->created_at);
-        });
+    /**
+     * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::fallback
+     * @return void
+     */
+    public function testFallback()
+    {
+        config([
+            'content.locales' => ['en', 'de', 'es'],
+            'content.fallback' => 'es'
+        ]);
+
+        $oldText = Text::factory([
+            'lang' => config('content.fallback')
+        ])->create();
+        $newText = Text::factory([
+            'lang' => config('content.fallback'),
+            'created_at' => (new Carbon($oldText->created_at))->addSecond()
+        ])->create();
+
+        $this->assertEquals(Text::fallback()->first()->toArray(), $newText->toArray());
+        $this->assertEquals(Text::fallback()->get()[Text::fallback()->count() - 1]->toArray(), $oldText->toArray());
     }
 }

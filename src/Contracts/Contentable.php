@@ -3,7 +3,6 @@
 namespace KUHdo\Content\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-use KUHdo\Content\DataTransferObjects\TextData;
 
 interface Contentable
 {
@@ -13,13 +12,8 @@ interface Contentable
     public function content(): MorphOne;
 
     /**
+     * @param array|null $vars
      * @return string
      */
-    public function getContent(): string;
-
-    /**
-     * @param TextData[] $texts
-     * @return $this
-     */
-    public function setContent(array $texts): static;
+    public function getContent(array $vars = null): string;
 }

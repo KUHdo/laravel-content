@@ -16,8 +16,6 @@ class ContentFactory extends Factory
     public function definition(): array
     {
         return [
-            'contentable_id' => $this->faker->randomDigitNotNull,
-            'contentable_type' => 'TestContentableClass',
             'translation_id' => Translation::factory()->full()
         ];
     }

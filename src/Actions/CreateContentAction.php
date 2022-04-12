@@ -3,21 +3,18 @@
 namespace KUHdo\Content\Actions;
 
 use KUHdo\Content\Contracts\Contentable;
-use KUHdo\Content\DataTransferObjects\TranslationData;
 use KUHdo\Content\Models\Content;
-use Throwable;
+use KUHdo\Content\Models\Translation;
 
 class CreateContentAction
 {
     /**
-     * @param Contentable     $contentable
-     * @param TranslationData $translationData
+     * @param Contentable $contentable
+     * @param Translation $translation
      * @return Content
-     * @throws Throwable
      */
-    public function __invoke(Contentable $contentable, TranslationData $translationData): Content
+    public function __invoke(Contentable $contentable, Translation $translation): Content
     {
-        $translation = (new CreateTranslationAction)($translationData);
         $content = new Content();
         $content->translation()->associate($translation);
         $content->contentable()->associate($contentable);

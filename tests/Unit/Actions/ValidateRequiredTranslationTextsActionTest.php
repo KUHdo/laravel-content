@@ -5,7 +5,7 @@ namespace KUHdo\Content\Tests\Unit\Actions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use KUHdo\Content\Actions\ValidateRequiredTranslationTextsAction;
 use KUHdo\Content\Exceptions\MissingTranslationTextException;
-use KUHdo\Content\Tests\Factories\TextDataFactory;
+use KUHdo\Content\Models\Text;
 use KUHdo\Content\Tests\TestCase;
 use Throwable;
 
@@ -21,10 +21,10 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
     {
         config(['content.required' => ['en', 'de']]);
 
-        $texts = [
-            TextDataFactory::new()->create(['lang' => 'en']),
-            TextDataFactory::new()->create(['lang' => 'de']),
-        ];
+        $texts = Text::factory()
+            ->count(2)
+            ->sequence(['lang' => 'en'], ['lang' => 'de'])
+            ->make();
 
         $result = (new ValidateRequiredTranslationTextsAction)($texts);
 
@@ -39,12 +39,10 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
     {
         config(['content.required' => ['en']]);
 
-        $texts = [
-            TextDataFactory::new()->create(['lang' => 'de']),
-        ];
+        $text = Text::factory()->make(['lang' => 'de']);
 
         $this->expectException(MissingTranslationTextException::class);
 
-        (new ValidateRequiredTranslationTextsAction)($texts);
+        (new ValidateRequiredTranslationTextsAction)($text);
     }
 }

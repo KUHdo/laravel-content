@@ -69,11 +69,10 @@
         },
         "hooks": {
             "pre-commit": [
-                "echo committing as $(git config user.name)",
-                "composer lintfix"
+                "composer lint"
             ],
             "pre-push": [
-                "phpunit"
+                "composer test"
             ],
             "post-merge": "composer install"
         }

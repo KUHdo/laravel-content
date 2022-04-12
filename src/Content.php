@@ -2,10 +2,11 @@
 
 namespace KUHdo\Content;
 
+use Illuminate\Database\Eloquent\Collection;
 use KUHdo\Content\Actions\CreateContentAction;
+use KUHdo\Content\Actions\CreateTranslationAction;
 use KUHdo\Content\Contracts\Contentable;
-use KUHdo\Content\DataTransferObjects\TextData;
-use KUHdo\Content\DataTransferObjects\TranslationData;
+use KUHdo\Content\Models\Text;
 use Throwable;
 
 class Content
@@ -14,17 +15,24 @@ class Content
      * @var Contentable
      */
     private Contentable $contentable;
+
     /**
-     * @var TranslationData
+     * @var Collection
      */
-    private TranslationData $translation;
+    private Collection $texts;
+
+    /**
+     * @var string|null
+     */
+    private ?string $key;
 
     /**
      *
      */
     public function __construct()
     {
-        $this->translation = new TranslationData();
+        $this->texts = new Collection();
+        $this->key = null;
     }
 
     /**
@@ -45,18 +53,18 @@ class Content
      */
     public function text(string $lang, string $value): self
     {
-        $this->translation->texts[] = new TextData($lang, $value);
+        $this->texts->push(new Text(['lang' => $lang, 'value' => $value]));
 
         return $this;
     }
 
     /**
-     * @param TextData[] $texts
+     * @param Collection $texts
      * @return $this
      */
-    public function texts(array $texts): self
+    public function texts(Collection $texts): self
     {
-        $this->translation->texts = $texts;
+        $this->texts = $texts;
 
         return $this;
     }
@@ -67,7 +75,7 @@ class Content
      */
     public function key(string $key): self
     {
-        $this->translation->key = $key;
+        $this->key = $key;
 
         return $this;
     }
@@ -78,17 +86,18 @@ class Content
      */
     public function save(): Models\Content
     {
-        return (new CreateContentAction)($this->contentable, $this->translation);
+        $translation = (new CreateTranslationAction)($this->texts, $this->key);
+        return (new CreateContentAction)($this->contentable, $translation);
     }
 
     /**
      * @param Contentable $contentable
-     * @param TextData[]  $texts
+     * @param Collection  $texts
      * @param string|null $key
      * @return Models\Content
      * @throws Throwable
      */
-    public function create(Contentable $contentable, array $texts, ?string $key = null): Models\Content
+    public function create(Contentable $contentable, Collection $texts, ?string $key = null): Models\Content
     {
         return $this->for($contentable)->texts($texts)->key($key)->save();
     }
