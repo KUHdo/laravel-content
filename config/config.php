@@ -7,5 +7,9 @@ return [
 
     'fallback' => config('app.fallback_locale', 'en'),
 
-    'required' => config('app.locale', ['en'])
+    'required' => config('app.locale', ['en']),
+
+    'prefix' => '',
+
+    'middleware' => ['web']
 ];

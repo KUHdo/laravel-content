@@ -58,7 +58,7 @@ class ContentTest extends TestCase
      */
     public function testGetTextAttribute()
     {
-        $content = Content::factory()->create();
+        $content = Content::factory()->for(Contentable::factory())->create();
 
         $this->assertIsString($content->text);
     }
@@ -69,7 +69,7 @@ class ContentTest extends TestCase
      */
     public function testText()
     {
-        $content = Content::factory()->create();
+        $content = Content::factory()->for(Contentable::factory())->create();
 
         $this->assertIsString($content->text([]));
     }

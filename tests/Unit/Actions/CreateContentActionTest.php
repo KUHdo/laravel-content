@@ -7,7 +7,6 @@ use KUHdo\Content\Actions\CreateContentAction;
 use KUHdo\Content\Models\Translation;
 use KUHdo\Content\Tests\Fixtures\Contentable;
 use KUHdo\Content\Tests\TestCase;
-use Throwable;
 
 class CreateContentActionTest extends TestCase
 {

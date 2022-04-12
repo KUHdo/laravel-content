@@ -16,6 +16,11 @@ class Content extends Model
     use HasFactory;
 
     /**
+     * @var array
+     */
+    public $guarded = [];
+
+    /**
      * @return ContentFactory
      */
     protected static function newFactory(): ContentFactory

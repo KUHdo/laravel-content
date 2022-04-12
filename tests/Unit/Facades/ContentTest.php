@@ -6,8 +6,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use KUHdo\Content\Facades\Content;
 use KUHdo\Content\Models\Content as ContentModel;
 use KUHdo\Content\Models\Text;
-use KUHdo\Content\Tests\Factories\TextDataFactory;
-use KUHdo\Content\Tests\Factories\TranslationDataFactory;
 use KUHdo\Content\Tests\Fixtures\Contentable;
 use KUHdo\Content\Tests\TestCase;
 

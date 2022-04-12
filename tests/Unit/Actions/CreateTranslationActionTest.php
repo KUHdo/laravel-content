@@ -5,7 +5,6 @@ namespace KUHdo\Content\Tests\Unit\Actions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use KUHdo\Content\Actions\CreateTranslationAction;
 use KUHdo\Content\Models\Text;
-use KUHdo\Content\Models\Translation;
 use KUHdo\Content\Tests\TestCase;
 use Throwable;
 
