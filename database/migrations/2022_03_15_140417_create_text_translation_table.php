@@ -22,6 +22,6 @@ return new class extends Migration {
 
     public function down()
     {
-        Schema::dropIfExists('translation_text');
+        Schema::dropIfExists('text_translation');
     }
 };

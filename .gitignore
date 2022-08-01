@@ -10,4 +10,6 @@ node_modules
 .php-cs-fixer.cache
 test-reports/
 .envrc
+flake.*
+.direnv/
 .bin
