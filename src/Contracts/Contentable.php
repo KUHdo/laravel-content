@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 interface Contentable
 {
-    /**
-     * @return MorphOne
-     */
     public function content(): MorphOne;
 
     /**

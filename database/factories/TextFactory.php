@@ -10,9 +10,6 @@ class TextFactory extends Factory
 {
     protected $model = Text::class;
 
-    /**
-     * @return array
-     */
     public function definition(): array
     {
         return [

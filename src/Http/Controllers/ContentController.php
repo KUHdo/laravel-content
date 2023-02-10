@@ -12,18 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ContentController
 {
-    /**
-     * @return ContentCollection
-     */
     public function index(): ContentCollection
     {
         return ContentCollection::make(Content::all());
     }
 
-    /**
-     * @param ContentStoreRequest $request
-     * @return ContentResource
-     */
     public function store(ContentStoreRequest $request): ContentResource
     {
         $data = $request->validated();
@@ -40,20 +33,11 @@ class ContentController
         return ContentResource::make($content);
     }
 
-    /**
-     * @param Content $content
-     * @return ContentResource
-     */
     public function show(Content $content): ContentResource
     {
         return ContentResource::make($content);
     }
 
-    /**
-     * @param ContentUpdateRequest $request
-     * @param Content              $content
-     * @return ContentResource
-     */
     public function update(ContentUpdateRequest $request, Content $content): ContentResource
     {
         $data = $request->validated();

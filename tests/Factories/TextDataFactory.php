@@ -8,10 +8,6 @@ use KUHdo\Content\DataTransferObjects\TextData;
 
 class TextDataFactory extends Factory
 {
-    /**
-     * @param array $extra
-     * @return TextData
-     */
     public function create(array $extra = []): TextData
     {
         return new TextData(
@@ -20,9 +16,6 @@ class TextDataFactory extends Factory
         );
     }
 
-    /**
-     * @return Collection
-     */
     public function createAll(): Collection
     {
         return collect(config('content.locales'))

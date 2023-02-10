@@ -11,9 +11,6 @@ use Illuminate\Support\ServiceProvider;
  */
 class ContentServiceProvider extends ServiceProvider
 {
-    /**
-     * @return void
-     */
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -30,9 +27,6 @@ class ContentServiceProvider extends ServiceProvider
         }
     }
 
-    /**
-     * @return void
-     */
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'content');

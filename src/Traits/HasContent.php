@@ -7,9 +7,6 @@ use KUHdo\Content\Models\Content;
 
 trait HasContent
 {
-    /**
-     * @return MorphOne
-     */
     public function content(): MorphOne
     {
         return $this->morphOne(Content::class, 'contentable');

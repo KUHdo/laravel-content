@@ -14,14 +14,8 @@ class DeleteTextActionTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @var Translation
-     */
     protected Translation $translation;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();

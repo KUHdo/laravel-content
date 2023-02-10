@@ -8,9 +8,6 @@ use KUHdo\Content\Tests\Fixtures\CreateContentablesTable;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();

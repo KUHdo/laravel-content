@@ -10,9 +10,6 @@ class ContentFactory extends Factory
 {
     protected $model = Content::class;
 
-    /**
-     * @return array
-     */
     public function definition(): array
     {
         return [

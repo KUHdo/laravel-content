@@ -10,9 +10,6 @@ class TranslationFactory extends Factory
 {
     protected $model = Translation::class;
 
-    /**
-     * @return array
-     */
     public function definition(): array
     {
         return [
@@ -20,9 +17,6 @@ class TranslationFactory extends Factory
         ];
     }
 
-    /**
-     * @return $this
-     */
     public function full(): static
     {
         return collect(config('content.locales'))

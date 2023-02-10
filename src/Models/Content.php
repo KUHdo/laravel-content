@@ -20,9 +20,6 @@ class Content extends Model
      */
     public $guarded = [];
 
-    /**
-     * @return ContentFactory
-     */
     protected static function newFactory(): ContentFactory
     {
         return ContentFactory::new();
@@ -41,34 +38,21 @@ class Content extends Model
         return new ContentQueryBuilder($query);
     }
 
-    /**
-     * @return BelongsTo
-     */
     public function translation(): BelongsTo
     {
         return $this->belongsTo(Translation::class);
     }
 
-    /**
-     * @return MorphTo
-     */
     public function contentable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    /**
-     * @return string
-     */
     public function getTextAttribute(): string
     {
         return $this->translation()->first()->currentText->value;
     }
 
-    /**
-     * @param array $vars
-     * @return string
-     */
     public function text(array $vars): string
     {
         return (new InterpolateTextAction)($this->translation()->first()->currentText, $vars)->value;

@@ -11,34 +11,18 @@ use Throwable;
 
 class Content
 {
-    /**
-     * @var Contentable
-     */
     private Contentable $contentable;
 
-    /**
-     * @var Collection
-     */
     private Collection $texts;
 
-    /**
-     * @var string|null
-     */
     private ?string $key;
 
-    /**
-     *
-     */
     public function __construct()
     {
         $this->texts = new Collection();
         $this->key = null;
     }
 
-    /**
-     * @param Contentable $contentable
-     * @return $this
-     */
     public function for(Contentable $contentable): self
     {
         $this->contentable = $contentable;
@@ -46,11 +30,6 @@ class Content
         return $this;
     }
 
-    /**
-     * @param string $lang
-     * @param string $value
-     * @return $this
-     */
     public function text(string $lang, string $value): self
     {
         $this->texts->push(new Text(['lang' => $lang, 'value' => $value]));
@@ -58,10 +37,6 @@ class Content
         return $this;
     }
 
-    /**
-     * @param Collection $texts
-     * @return $this
-     */
     public function texts(Collection $texts): self
     {
         $this->texts = $texts;
@@ -69,10 +44,6 @@ class Content
         return $this;
     }
 
-    /**
-     * @param string $key
-     * @return $this
-     */
     public function key(string $key): self
     {
         $this->key = $key;
