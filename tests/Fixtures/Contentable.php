@@ -12,9 +12,6 @@ class Contentable extends Model implements ContentableInterface
     use HasFactory;
     use HasContent;
 
-    /**
-     * @return ContentableFactory
-     */
     protected static function newFactory(): ContentableFactory
     {
         return ContentableFactory::new();

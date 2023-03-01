@@ -13,7 +13,6 @@ class HasContentTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Traits\HasContent::content
-     * @return void
      */
     public function testContent()
     {
@@ -24,7 +23,6 @@ class HasContentTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Traits\HasContent::getContent
-     * @return void
      */
     public function testGetContent()
     {

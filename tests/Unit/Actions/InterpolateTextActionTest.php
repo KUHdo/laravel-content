@@ -13,7 +13,6 @@ class InterpolateTextActionTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Actions\InterpolateTextAction
-     * @return void
      */
     public function testTextValueShouldBeInterpolated()
     {

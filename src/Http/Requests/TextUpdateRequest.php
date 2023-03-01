@@ -7,9 +7,6 @@ use Illuminate\Validation\Rule;
 
 class TextUpdateRequest extends FormRequest
 {
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return [

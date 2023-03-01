@@ -13,7 +13,6 @@ class ContentFactoryTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Database\Factories\ContentFactory::definition
-     * @return void
      */
     public function testContentWithFullTranslationShouldBeCreated()
     {

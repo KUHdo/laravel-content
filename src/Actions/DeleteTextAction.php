@@ -10,9 +10,6 @@ use Throwable;
 class DeleteTextAction
 {
     /**
-     * @param Translation $translation
-     * @param Text        $text
-     * @return boolean|null
      * @throws Throwable
      */
     public function __invoke(Translation $translation, Text $text): null| bool

@@ -17,7 +17,6 @@ class TranslationTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Translation::newFactory
-     * @return void
      */
     public function testNewFactory()
     {
@@ -26,7 +25,6 @@ class TranslationTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Translation::newEloquentBuilder
-     * @return void
      */
     public function testNewEloquentBuilder()
     {
@@ -35,7 +33,6 @@ class TranslationTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Translation::texts
-     * @return void
      */
     public function testTexts()
     {
@@ -44,7 +41,6 @@ class TranslationTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Translation::contents
-     * @return void
      */
     public function testContents()
     {
@@ -53,7 +49,6 @@ class TranslationTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Translation::getCurrentTextAttribute
-     * @return void
      */
     public function testGetCurrentTextAttribute()
     {

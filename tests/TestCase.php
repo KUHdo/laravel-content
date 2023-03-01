@@ -8,18 +8,12 @@ use KUHdo\Content\Tests\Fixtures\CreateContentablesTable;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
     }
 
     /**
-     * @param Application $app
-     * @return string[]
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     protected function getPackageProviders($app): array
@@ -30,9 +24,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * @param Application $app
-     * @return void
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     protected function getEnvironmentSetUp($app)

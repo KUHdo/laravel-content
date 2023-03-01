@@ -9,7 +9,6 @@ class Content extends Facade
     /**
      * @codeCoverageIgnore
      *
-     * @return string
      */
     protected static function getFacadeAccessor(): string
     {

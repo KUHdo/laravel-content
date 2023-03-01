@@ -14,7 +14,6 @@ class TextQueryBuilderTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::current
-     * @return void
      */
     public function testCurrent()
     {
@@ -35,7 +34,6 @@ class TextQueryBuilderTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::default
-     * @return void
      */
     public function testDefault()
     {
@@ -58,7 +56,6 @@ class TextQueryBuilderTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::fallback
-     * @return void
      */
     public function testFallback()
     {

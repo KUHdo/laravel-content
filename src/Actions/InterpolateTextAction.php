@@ -7,11 +7,6 @@ use KUHdo\Content\Models\Text;
 
 class InterpolateTextAction
 {
-    /**
-     * @param Text  $text
-     * @param array $vars
-     * @return Text
-     */
     public function __invoke(Text $text, array $vars): Text
     {
         return $text->replicate()->fill([

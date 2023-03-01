@@ -14,7 +14,6 @@ class InterpolateTranslationActionTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Actions\InterpolateTranslationAction
-     * @return void
      */
     public function testTextValueShouldBeInterpolated()
     {

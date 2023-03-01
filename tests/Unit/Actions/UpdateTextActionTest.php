@@ -13,7 +13,6 @@ class UpdateTextActionTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Actions\UpdateTextAction
-     * @return void
      */
     public function testTextShouldBeUpdated()
     {

@@ -14,7 +14,6 @@ class TextResourceTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Http\Resources\TextResource::toArray
-     * @return void
      */
     public function testMake()
     {

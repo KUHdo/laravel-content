@@ -6,9 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ContentStoreRequest extends FormRequest
 {
-    /**
-     * @return string[]
-     */
     public function rules(): array
     {
         return [

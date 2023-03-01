@@ -15,7 +15,6 @@ class ContentTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Content::for
-     * @return void
      */
     public function testForMethod()
     {
@@ -28,7 +27,6 @@ class ContentTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Content::text
-     * @return void
      */
     public function testTextMethod()
     {
@@ -41,7 +39,6 @@ class ContentTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Content::texts
-     * @return void
      */
     public function testTextsMethod()
     {
@@ -54,7 +51,6 @@ class ContentTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Content::key
-     * @return void
      */
     public function testKeyMethod()
     {
@@ -67,7 +63,6 @@ class ContentTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Content::save
-     * @return void
      */
     public function testSaveMethod()
     {
@@ -86,7 +81,6 @@ class ContentTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Content::create
-     * @return void
      */
     public function testCreateMethod()
     {

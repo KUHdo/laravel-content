@@ -11,9 +11,6 @@ class ContentableFactory extends Factory
      */
     protected $model = Contentable::class;
 
-    /**
-     * @return array
-     */
     public function definition(): array
     {
         return [];

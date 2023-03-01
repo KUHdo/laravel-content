@@ -12,7 +12,6 @@ class TextTest extends TestCase
 {
     /**
      * @Covers \KUHdo\Content\Models\Text::newFactory
-     * @return void
      */
     public function testNewFactory()
     {
@@ -21,7 +20,6 @@ class TextTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Text::newEloquentBuilder
-     * @return void
      */
     public function testNewEloquentBuilder()
     {
@@ -30,7 +28,6 @@ class TextTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Text::translations
-     * @return void
      */
     public function testTranslations()
     {
