@@ -8,11 +8,6 @@ use KUHdo\Content\Models\Translation;
 
 class CreateContentAction
 {
-    /**
-     * @param Contentable $contentable
-     * @param Translation $translation
-     * @return Content
-     */
     public function __invoke(Contentable $contentable, Translation $translation): Content
     {
         $content = new Content();

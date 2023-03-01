@@ -35,10 +35,6 @@ class Content
         $this->key = null;
     }
 
-    /**
-     * @param Contentable $contentable
-     * @return $this
-     */
     public function for(Contentable $contentable): self
     {
         $this->contentable = $contentable;
@@ -46,11 +42,6 @@ class Content
         return $this;
     }
 
-    /**
-     * @param string $lang
-     * @param string $value
-     * @return $this
-     */
     public function text(string $lang, string $value): self
     {
         $this->texts->push(new Text(['lang' => $lang, 'value' => $value]));
@@ -58,10 +49,6 @@ class Content
         return $this;
     }
 
-    /**
-     * @param Collection $texts
-     * @return $this
-     */
     public function texts(Collection $texts): self
     {
         $this->texts = $texts;
@@ -69,10 +56,6 @@ class Content
         return $this;
     }
 
-    /**
-     * @param string $key
-     * @return $this
-     */
     public function key(string $key): self
     {
         $this->key = $key;
@@ -81,7 +64,6 @@ class Content
     }
 
     /**
-     * @return Models\Content
      * @throws Throwable
      */
     public function save(): Models\Content
@@ -91,10 +73,6 @@ class Content
     }
 
     /**
-     * @param Contentable $contentable
-     * @param Collection  $texts
-     * @param string|null $key
-     * @return Models\Content
      * @throws Throwable
      */
     public function create(Contentable $contentable, Collection $texts, ?string $key = null): Models\Content

@@ -18,9 +18,6 @@ class Text extends Model
      */
     protected $guarded = [];
 
-    /**
-     * @return TextFactory
-     */
     protected static function newFactory(): TextFactory
     {
         return TextFactory::new();
@@ -29,9 +26,6 @@ class Text extends Model
     /**
      * @inheritDoc
      *
-     * @param Builder $query
-     * @return TextQueryBuilder
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     public function newEloquentBuilder($query): TextQueryBuilder
@@ -39,9 +33,6 @@ class Text extends Model
         return new TextQueryBuilder($query);
     }
 
-    /**
-     * @return BelongsToMany
-     */
     public function translations(): BelongsToMany
     {
         return $this->belongsToMany(Translation::class);

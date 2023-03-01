@@ -16,20 +16,11 @@ use Throwable;
 
 class TextController
 {
-    /**
-     * @param Content $content
-     * @return TextCollection
-     */
     public function index(Content $content): TextCollection
     {
         return TextCollection::make($content->translation->texts);
     }
 
-    /**
-     * @param TextStoreRequest $request
-     * @param Content          $content
-     * @return JsonResponse
-     */
     public function store(TextStoreRequest $request, Content $content): JsonResponse
     {
         $text = Text::create($request->validated());
@@ -38,21 +29,11 @@ class TextController
         return TextResource::make($text)->toResponse($request)->setStatusCode(Response::HTTP_CREATED);
     }
 
-    /**
-     * @param Text $text
-     * @return TextResource
-     */
     public function show(Text $text): TextResource
     {
         return TextResource::make($text);
     }
 
-    /**
-     * @param TextUpdateRequest $request
-     * @param Content           $content
-     * @param Text              $text
-     * @return TextResource
-     */
     public function update(TextUpdateRequest $request, Content $content, Text $text): TextResource
     {
         $text = (new UpdateTextAction)($content->translation, $text, $request->validated());
@@ -60,12 +41,6 @@ class TextController
         return TextResource::make($text);
     }
 
-    /**
-     * @param Content $content
-     * @param Text    $text
-     * @return \Illuminate\Http\Response
-     * @throws Throwable
-     */
     public function destroy(Content $content, Text $text): \Illuminate\Http\Response
     {
         (new DeleteTextAction)($content->translation, $text);

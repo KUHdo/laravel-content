@@ -19,9 +19,6 @@ class Translation extends Model
      */
     protected $guarded = [];
 
-    /**
-     * @return TranslationFactory
-     */
     protected static function newFactory(): TranslationFactory
     {
         return TranslationFactory::new();
@@ -30,9 +27,6 @@ class Translation extends Model
     /**
      * @inheritDoc
      *
-     * @param Builder $query
-     * @return TranslationQueryBuilder
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     public function newEloquentBuilder($query): TranslationQueryBuilder
@@ -40,25 +34,16 @@ class Translation extends Model
         return new TranslationQueryBuilder($query);
     }
 
-    /**
-     * @return BelongsToMany
-     */
     public function texts(): BelongsToMany
     {
         return $this->belongsToMany(Text::Class);
     }
 
-    /**
-     * @return HasMany
-     */
     public function contents(): HasMany
     {
         return $this->hasMany(Content::class);
     }
 
-    /**
-     * @return Text
-     */
     public function getCurrentTextAttribute(): Text
     {
         return $this->texts()->current()->first() ?: $this->texts()->fallback()->first();
