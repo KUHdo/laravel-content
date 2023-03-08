@@ -15,9 +15,7 @@ class Content extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
+
     public $guarded = [];
 
     protected static function newFactory(): ContentFactory
@@ -28,8 +26,6 @@ class Content extends Model
     /**
      * @inheritDoc
      *
-     * @param Builder $query
-     * @return ContentQueryBuilder
      *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */

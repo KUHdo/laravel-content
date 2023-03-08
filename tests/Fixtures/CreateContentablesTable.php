@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateContentablesTable extends Migration
 {
-    /**
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('contentables', function (Blueprint $table) {
@@ -19,9 +17,7 @@ class CreateContentablesTable extends Migration
         });
     }
 
-    /**
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('contents');

@@ -12,7 +12,6 @@ class TextFactoryTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Database\Factories\TextFactory::definition
-     * @return void
      */
     public function testTextModelShouldOnlyHasSetLocales()
     {

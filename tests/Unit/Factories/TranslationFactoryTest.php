@@ -12,7 +12,6 @@ class TranslationFactoryTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Database\Factories\TranslationFactory::full
-     * @return void
      */
     public function testTranslationWithTextsWithAllSetLocalesShouldBeCreated()
     {

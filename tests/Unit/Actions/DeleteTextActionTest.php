@@ -31,7 +31,6 @@ class DeleteTextActionTest extends TestCase
     /**
      * @Covers \KUHdo\Content\Actions\DeleteTextAction
      *
-     * @return void
      * @throws Throwable
      */
     public function testTextShouldBeDeleted()
@@ -47,7 +46,6 @@ class DeleteTextActionTest extends TestCase
     /**
      * @Covers \KUHdo\Content\Actions\DeleteTextAction
      *
-     * @return void
      * @throws Throwable
      */
     public function testRequiredTextShouldNotBeDeleted()
@@ -62,7 +60,6 @@ class DeleteTextActionTest extends TestCase
     /**
      * @Covers \KUHdo\Content\Actions\DeleteTextAction
      *
-     * @return void
      * @throws Throwable
      */
     public function testAdditionalRequiredTextShouldBeDeleted()

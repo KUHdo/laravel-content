@@ -15,7 +15,6 @@ class ContentResourceTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Http\Resources\ContentResource::toArray
-     * @return void
      */
     public function testMake()
     {

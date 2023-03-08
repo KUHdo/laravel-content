@@ -14,7 +14,6 @@ class CreateTranslationActionTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Actions\CreateTranslationAction
-     * @return void
      * @throws Throwable
      */
     public function testTranslationShouldBeCreated()
@@ -33,7 +32,6 @@ class CreateTranslationActionTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Actions\CreateTranslationAction
-     * @return void
      * @throws Throwable
      */
     public function testTranslationShouldHaveKeyBasedOnDefaultLocaleText()

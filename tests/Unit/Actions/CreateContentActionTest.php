@@ -14,7 +14,6 @@ class CreateContentActionTest extends TestCase
 
     /**
      * @covers \KUHdo\Content\Actions\CreateContentAction
-     * @return void
      */
     public function testContentShouldBeCreated()
     {

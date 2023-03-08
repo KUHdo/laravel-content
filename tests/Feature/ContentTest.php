@@ -15,9 +15,7 @@ class ContentTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @return void
-     */
+
     public function testLocalizedTextShouldBeReturnedFromContent()
     {
         $texts = new Collection([
@@ -44,9 +42,7 @@ class ContentTest extends TestCase
         });
     }
 
-    /**
-     * @return void
-     */
+
     public function testFallbackTextShouldBeReturnedFromContent()
     {
         $texts = new Collection([

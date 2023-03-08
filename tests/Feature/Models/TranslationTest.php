@@ -15,7 +15,6 @@ class TranslationTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Translation::texts
-     * @return void
      */
     public function testATranslationShouldBeCreated()
     {
@@ -39,7 +38,6 @@ class TranslationTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Translation::texts
-     * @return void
      */
     public function testATranslationShouldBeDeleted()
     {
@@ -62,7 +60,6 @@ class TranslationTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Models\Translation::getCurrentTextAttribute
-     * @return void
      */
     public function testCurrentTextShouldReturnText()
     {

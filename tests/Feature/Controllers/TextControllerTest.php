@@ -17,8 +17,6 @@ class TextControllerTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Http\Controllers\TextController::index
-     *
-     * @return void
      */
     public function testIndex()
     {
@@ -33,8 +31,6 @@ class TextControllerTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Http\Controllers\TextController::store
-     *
-     * @return void
      */
     public function testStore()
     {
@@ -54,8 +50,6 @@ class TextControllerTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Http\Controllers\TextController::show
-     *
-     * @return void
      */
     public function testShow()
     {
@@ -70,8 +64,6 @@ class TextControllerTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Http\Controllers\TextController::update
-     *
-     * @return void
      */
     public function testUpdate()
     {
@@ -88,8 +80,6 @@ class TextControllerTest extends TestCase
 
     /**
      * @Covers \KUHdo\Content\Http\Controllers\TextController::destroy
-     *
-     * @return void
      */
     public function testDestroy()
     {

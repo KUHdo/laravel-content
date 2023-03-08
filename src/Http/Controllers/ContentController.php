@@ -47,10 +47,7 @@ class ContentController
         return ContentResource::make($content);
     }
 
-    /**
-     * @param Content $content
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Content $content): Response
     {
         $content->delete();

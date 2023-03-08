@@ -9,9 +9,6 @@ use Throwable;
 class CreateTranslationAction
 {
     /**
-     * @param Collection  $texts
-     * @param string|null $key
-     * @return Translation
      * @throws Throwable
      */
     public function __invoke(Collection $texts, string $key = null): Translation

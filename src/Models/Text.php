@@ -13,9 +13,7 @@ class Text extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
+
     protected $guarded = [];
 
     protected static function newFactory(): TextFactory
@@ -26,8 +24,6 @@ class Text extends Model
     /**
      * @inheritDoc
      *
-     * @param Builder $query
-     * @return TextQueryBuilder
      *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */

@@ -14,9 +14,7 @@ class Translation extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
+    
     protected $guarded = [];
 
     protected static function newFactory(): TranslationFactory
@@ -27,8 +25,6 @@ class Translation extends Model
     /**
      * @inheritDoc
      *
-     * @param Builder $query
-     * @return TranslationQueryBuilder
      *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */

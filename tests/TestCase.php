@@ -14,8 +14,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * @param Application $app
-     * @return string[]
      *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
@@ -27,8 +25,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * @param Application $app
-     * @return void
      *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */

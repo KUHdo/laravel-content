@@ -42,9 +42,6 @@ class TextController
     }
 
     /**
-     * @param Content $content
-     * @param Text    $text
-     * @return \Illuminate\Http\Response
      * @throws Throwable
      */
     public function destroy(Content $content, Text $text): \Illuminate\Http\Response

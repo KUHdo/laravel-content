@@ -52,7 +52,6 @@ class Content
     }
 
     /**
-     * @return Models\Content
      * @throws Throwable
      */
     public function save(): Models\Content
@@ -62,10 +61,6 @@ class Content
     }
 
     /**
-     * @param Contentable $contentable
-     * @param Collection  $texts
-     * @param string|null $key
-     * @return Models\Content
      * @throws Throwable
      */
     public function create(Contentable $contentable, Collection $texts, ?string $key = null): Models\Content
