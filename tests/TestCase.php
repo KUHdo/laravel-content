@@ -14,7 +14,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     protected function getPackageProviders($app): array
@@ -25,7 +24,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     protected function getEnvironmentSetUp($app)

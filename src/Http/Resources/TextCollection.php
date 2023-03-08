@@ -9,7 +9,6 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 class TextCollection extends ResourceCollection
 {
     /**
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     public function toArray($request)

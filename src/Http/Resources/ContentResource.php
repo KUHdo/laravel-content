@@ -10,7 +10,6 @@ use KUHdo\Content\Models\Content;
 class ContentResource extends JsonResource
 {
     /**
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     public function toArray($request): array

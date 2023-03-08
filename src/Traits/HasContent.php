@@ -12,7 +12,6 @@ trait HasContent
         return $this->morphOne(Content::class, 'contentable');
     }
 
-
     public function getContent(array $vars = null): string
     {
         return isset($vars) ? $this->content->text($vars) : $this->content->text;

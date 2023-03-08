@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateContentablesTable extends Migration
 {
-
     public function up()
     {
         Schema::create('contentables', function (Blueprint $table) {
@@ -16,7 +15,6 @@ class CreateContentablesTable extends Migration
             $table->timestamps();
         });
     }
-
 
     public function down()
     {

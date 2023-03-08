@@ -25,7 +25,6 @@ class Translation extends Model
     /**
      * @inheritDoc
      *
-     *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
     public function newEloquentBuilder($query): TranslationQueryBuilder
