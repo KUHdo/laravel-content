@@ -2,6 +2,7 @@
 
 namespace KUHdo\Content\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -33,6 +34,13 @@ class Content extends Model
         return new ContentQueryBuilder($query);
     }
 
+<<<<<<< Updated upstream
+=======
+    /**
+     *
+     * @return BelongsTo
+     */
+>>>>>>> Stashed changes
     public function translation(): BelongsTo
     {
         return $this->belongsTo(Translation::class);
@@ -48,6 +56,15 @@ class Content extends Model
         return $this->translation()->first()->currentText->value;
     }
 
+<<<<<<< Updated upstream
+=======
+    /**
+     * This method is called in the HasContent Traits. search and replace style
+     *
+     * @param array $vars
+     * @return string
+     */
+>>>>>>> Stashed changes
     public function text(array $vars): string
     {
         return (new InterpolateTextAction)($this->translation()->first()->currentText, $vars)->value;
