@@ -22,9 +22,7 @@ class Content extends Model
     }
 
     /**
-     * @inheritDoc
-     *
-     * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
+     * Returns the query builder.*
      */
     public function newEloquentBuilder($query): ContentQueryBuilder
     {
@@ -32,29 +30,31 @@ class Content extends Model
     }
 
     /**
-     *
-     * @return BelongsTo
+     * Relation to translation.
      */
     public function translation(): BelongsTo
     {
         return $this->belongsTo(Translation::class);
     }
 
+    /**
+     * The contentable is a morph to many relation.
+     */
     public function contentable(): MorphTo
     {
         return $this->morphTo();
     }
 
+    /**
+     * get the latest Text of the content.
+     */
     public function getTextAttribute(): string
     {
         return $this->translation()->first()->currentText->value;
     }
 
     /**
-     * This method is called in the HasContent Traits. search and replace style
-     *
-     * @param array $vars
-     * @return string
+     * This method is called in the HasContent Traits. Search and replace style.
      */
     public function text(array $vars): string
     {

@@ -8,7 +8,7 @@ use KUHdo\Content\Models\Content;
 trait HasContents
 {
     /**
-     * @return MorphMany
+     * Get the contents relation morph many.
      */
     public function contents(): MorphMany
     {

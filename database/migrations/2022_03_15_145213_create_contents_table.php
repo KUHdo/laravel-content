@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Schema;
 use KUHdo\Content\Models\Translation;
 
 return new class extends Migration {
+
+    /**
+     * Run the migrations.
+     */
     public function up()
     {
         Schema::create('contents', function (Blueprint $table) {
@@ -17,6 +21,9 @@ return new class extends Migration {
         });
     }
 
+    /**
+     * Revert the migrations.
+     */
     public function down()
     {
         Schema::dropIfExists('contents');

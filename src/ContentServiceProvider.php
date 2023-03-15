@@ -11,6 +11,9 @@ use Illuminate\Support\ServiceProvider;
  */
 class ContentServiceProvider extends ServiceProvider
 {
+    /**
+     * Will boot up the package environment.
+     */
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -27,6 +30,9 @@ class ContentServiceProvider extends ServiceProvider
         }
     }
 
+    /**
+     * Will register the package environment.
+     */
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'content');

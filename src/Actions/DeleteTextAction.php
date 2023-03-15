@@ -5,12 +5,11 @@ namespace KUHdo\Content\Actions;
 use KUHdo\Content\Exceptions\MissingTranslationTextException;
 use KUHdo\Content\Models\Text;
 use KUHdo\Content\Models\Translation;
-use Throwable;
 
 class DeleteTextAction
 {
     /**
-     * @throws Throwable
+     * Deletes a text if it's locale is not required.
      */
     public function __invoke(Translation $translation, Text $text): null| bool
     {

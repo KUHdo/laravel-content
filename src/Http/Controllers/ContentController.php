@@ -12,11 +12,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ContentController
 {
+    /**
+     * Returns a content collection.
+     */
     public function index(): ContentCollection
     {
         return ContentCollection::make(Content::all());
     }
 
+    /**
+     * Stores a content with required contentable, translation key and texts, with lang and value.
+     */
     public function store(ContentStoreRequest $request): ContentResource
     {
         $data = $request->validated();
@@ -33,11 +39,17 @@ class ContentController
         return ContentResource::make($content);
     }
 
+    /**
+     * Returns a requested content as resource.
+     */
     public function show(Content $content): ContentResource
     {
         return ContentResource::make($content);
     }
 
+    /**
+     * Updates a translation key of the content. Text should be always stored new and never updated.
+     */
     public function update(ContentUpdateRequest $request, Content $content): ContentResource
     {
         $data = $request->validated();
@@ -47,7 +59,9 @@ class ContentController
         return ContentResource::make($content);
     }
 
-
+    /**
+     * Deletes the content.
+     */
     public function destroy(Content $content): Response
     {
         $content->delete();

@@ -2,7 +2,6 @@
 
 namespace KUHdo\Content\Http\Resources;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use KUHdo\Content\Models\Text;
 
@@ -10,7 +9,7 @@ use KUHdo\Content\Models\Text;
 class TextResource extends JsonResource
 {
     /**
-     * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
+     * Returns an array of the text model.
      */
     public function toArray($request)
     {

@@ -7,6 +7,10 @@ use KUHdo\Content\Models\Text;
 use KUHdo\Content\Models\Translation;
 
 return new class extends Migration {
+
+    /**
+     * Run the migrations.
+     */
     public function up()
     {
         Schema::create('text_translation', function (Blueprint $table) {
@@ -20,6 +24,9 @@ return new class extends Migration {
         });
     }
 
+    /**
+     * Revert the migrations.
+     */
     public function down()
     {
         Schema::dropIfExists('text_translation');

@@ -10,6 +10,9 @@ class ContentFactory extends Factory
 {
     protected $model = Content::class;
 
+    /**
+     * Define the model's default state.
+     */
     public function definition(): array
     {
         return [

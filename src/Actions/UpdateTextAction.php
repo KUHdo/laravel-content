@@ -7,6 +7,9 @@ use KUHdo\Content\Models\Translation;
 
 class UpdateTextAction
 {
+    /**
+     * Updates a translation text by creating a new text and binds it to translation.
+     */
     public function __invoke(Translation $translation, Text $text, array $data): Text
     {
         $new = Text::create($data + $text->only(['lang', 'value']));

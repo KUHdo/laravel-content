@@ -7,7 +7,6 @@ use KUHdo\Content\Actions\CreateContentAction;
 use KUHdo\Content\Actions\CreateTranslationAction;
 use KUHdo\Content\Contracts\Contentable;
 use KUHdo\Content\Models\Text;
-use Throwable;
 
 class Content
 {
@@ -17,12 +16,18 @@ class Content
 
     private ?string $key;
 
+    /**
+     * Constructs texts as Collection and key as null.
+     */
     public function __construct()
     {
         $this->texts = new Collection();
         $this->key = null;
     }
 
+    /**
+     * This method will create the contentable.
+     */
     public function for(Contentable $contentable): self
     {
         $this->contentable = $contentable;
@@ -30,6 +35,9 @@ class Content
         return $this;
     }
 
+    /**
+     * This method will create a new text.
+     */
     public function text(string $lang, string $value): self
     {
         $this->texts->push(new Text(['lang' => $lang, 'value' => $value]));
@@ -37,6 +45,9 @@ class Content
         return $this;
     }
 
+    /**
+     * This method will create the texts. This is a collection of all texts from one translation.
+     */
     public function texts(Collection $texts): self
     {
         $this->texts = $texts;
@@ -44,6 +55,9 @@ class Content
         return $this;
     }
 
+    /**
+     * This method will create the key of the translation.
+     */
     public function key(string $key): self
     {
         $this->key = $key;
@@ -52,7 +66,7 @@ class Content
     }
 
     /**
-     * @throws Throwable
+     * This method will save a new content with translation and it's texts.
      */
     public function save(): Models\Content
     {
@@ -61,7 +75,7 @@ class Content
     }
 
     /**
-     * @throws Throwable
+     * This method will create a new content from a contentable with translation and it's texts.
      */
     public function create(Contentable $contentable, Collection $texts, ?string $key = null): Models\Content
     {

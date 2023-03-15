@@ -10,6 +10,9 @@ class TranslationFactory extends Factory
 {
     protected $model = Translation::class;
 
+    /**
+     * Define the model's default state.
+     */
     public function definition(): array
     {
         return [
@@ -17,6 +20,9 @@ class TranslationFactory extends Factory
         ];
     }
 
+    /**
+     * Define the model's full state, incl locale.
+     */
     public function full(): static
     {
         return collect(config('content.locales'))
