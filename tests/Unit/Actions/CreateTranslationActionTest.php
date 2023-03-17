@@ -13,6 +13,8 @@ class CreateTranslationActionTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests translation creates action.
+     *
      * @covers \KUHdo\Content\Actions\CreateTranslationAction
      * @throws Throwable
      */
@@ -31,6 +33,8 @@ class CreateTranslationActionTest extends TestCase
     }
 
     /**
+     * Tests translation should have key based on default locale text.
+     *
      * @covers \KUHdo\Content\Actions\CreateTranslationAction
      * @throws Throwable
      */

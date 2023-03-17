@@ -13,6 +13,8 @@ class CreateContentActionTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests content creates action.
+     *
      * @covers \KUHdo\Content\Actions\CreateContentAction
      */
     public function testContentShouldBeCreated()

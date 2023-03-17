@@ -13,9 +13,11 @@ class InterpolateTranslationActionTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Test that translation value should be interpolated. Means the text will inject the provided parameters in both texts.
+     *
      * @covers \KUHdo\Content\Actions\InterpolateTranslationAction
      */
-    public function testTextValueShouldBeInterpolated()
+    public function testTranslationTextValueShouldBeInterpolated()
     {
         $translation = Translation::factory()
             ->has(Text::factory([

@@ -15,6 +15,9 @@ class ContentTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * Tests localized text should be returned from content.
+     */
     public function testLocalizedTextShouldBeReturnedFromContent()
     {
         $texts = new Collection([
@@ -41,6 +44,9 @@ class ContentTest extends TestCase
         });
     }
 
+    /**
+     * Tests fallback text should be returned from content.
+     */
     public function testFallbackTextShouldBeReturnedFromContent()
     {
         $texts = new Collection([

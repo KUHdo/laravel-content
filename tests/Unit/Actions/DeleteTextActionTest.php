@@ -16,6 +16,9 @@ class DeleteTextActionTest extends TestCase
 
     protected Translation $translation;
 
+    /**
+     * Setup test environment.
+     */
     public function setUp(): void
     {
         parent::setUp();
@@ -29,6 +32,8 @@ class DeleteTextActionTest extends TestCase
     }
 
     /**
+     * Tests if a text can be deleted.
+     *
      * @Covers \KUHdo\Content\Actions\DeleteTextAction
      *
      * @throws Throwable
@@ -44,6 +49,8 @@ class DeleteTextActionTest extends TestCase
     }
 
     /**
+     * Tests that required text should not be deleted.
+     *
      * @Covers \KUHdo\Content\Actions\DeleteTextAction
      *
      * @throws Throwable
@@ -58,6 +65,8 @@ class DeleteTextActionTest extends TestCase
     }
 
     /**
+     * Test that additional required text should be possible to delete.
+     *
      * @Covers \KUHdo\Content\Actions\DeleteTextAction
      *
      * @throws Throwable

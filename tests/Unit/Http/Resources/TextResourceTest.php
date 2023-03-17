@@ -13,6 +13,8 @@ class TextResourceTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests the text resource to array function.
+     *
      * @Covers \KUHdo\Content\Http\Resources\TextResource::toArray
      */
     public function testMake()

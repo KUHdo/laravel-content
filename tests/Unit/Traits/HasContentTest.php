@@ -12,6 +12,8 @@ class HasContentTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Test the has contents trait contents.
+     *
      * @Covers \KUHdo\Content\Traits\HasContent::content
      */
     public function testContent()
@@ -22,6 +24,8 @@ class HasContentTest extends TestCase
     }
 
     /**
+     * Test the has contents trait getContent.
+     *
      * @Covers \KUHdo\Content\Traits\HasContent::getContent
      */
     public function testGetContent()

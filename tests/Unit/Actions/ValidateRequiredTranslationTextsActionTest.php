@@ -14,6 +14,8 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests if validated texts are returned.
+     *
      * @covers \KUHdo\Content\Actions\ValidateRequiredTranslationTextsAction
      * @throws Throwable
      */
@@ -32,6 +34,8 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
     }
 
     /**
+     * Tests that exception is thrown.
+     *
      * @covers \KUHdo\Content\Actions\ValidateRequiredTranslationTextsAction
      * @throws Throwable
      */

@@ -14,6 +14,8 @@ class ContentTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests if a contentable is created.
+     *
      * @covers \KUHdo\Content\Content::for
      */
     public function testForMethod()
@@ -26,6 +28,8 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests if a text is created in the content class.
+     *
      * @covers \KUHdo\Content\Content::text
      */
     public function testTextMethod()
@@ -38,6 +42,8 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests if texts are created in the content class.
+     *
      * @covers \KUHdo\Content\Content::texts
      */
     public function testTextsMethod()
@@ -50,6 +56,8 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests if a translation key is created in the content class.
+     *
      * @covers \KUHdo\Content\Content::key
      */
     public function testKeyMethod()
@@ -62,6 +70,8 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests the save method of the content class.
+     *
      * @covers \KUHdo\Content\Content::save
      */
     public function testSaveMethod()
@@ -80,6 +90,8 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests the create method of the content class.
+     *
      * @covers \KUHdo\Content\Content::create
      */
     public function testCreateMethod()
