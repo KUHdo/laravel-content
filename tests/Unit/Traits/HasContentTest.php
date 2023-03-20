@@ -12,15 +12,15 @@ class HasContentTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Test the has contents trait contents.
+     * Test the has contents trait contents method.
      *
-     * @Covers \KUHdo\Content\Traits\HasContent::content
+     * @Covers \KUHdo\Content\Traits\HasContent::contents
      */
     public function testContent()
     {
         $contentable = Contentable::factory()->has(Content::factory())->create();
 
-        $this->assertInstanceOf(Content::class, $contentable->content);
+        $this->assertInstanceOf(Content::class, $contentable->contents->first());
     }
 
     /**
@@ -32,6 +32,6 @@ class HasContentTest extends TestCase
     {
         $contentable = Contentable::factory()->has(Content::factory())->create();
 
-        $this->assertIsString($contentable->getContent([]));
+        $this->assertIsString($contentable->getContent($contentable->contents->first()->translation->key));
     }
 }

@@ -28,6 +28,6 @@ class CreateContentActionTest extends TestCase
         $this->assertNotNull($content->translation);
         $this->assertModelExists($content->translation);
         $this->assertEquals($contentable, $content->contentable);
-        $this->assertNotNull($contentable->content);
+        $this->assertNotNull($contentable->contents);
     }
 }
