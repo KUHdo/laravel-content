@@ -9,8 +9,7 @@ use KUHdo\Content\DataTransferObjects\TextData;
 class TextDataFactory extends Factory
 {
     /**
-     * @param array $extra
-     * @return TextData
+     * Test factory creates a text data.
      */
     public function create(array $extra = []): TextData
     {
@@ -21,7 +20,7 @@ class TextDataFactory extends Factory
     }
 
     /**
-     * @return Collection
+     * Test factory creates text data for all locales.
      */
     public function createAll(): Collection
     {

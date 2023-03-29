@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateContentablesTable extends Migration
 {
     /**
-     * @return void
+     * Creates contentable table for tests.
      */
     public function up()
     {
@@ -20,7 +20,7 @@ class CreateContentablesTable extends Migration
     }
 
     /**
-     * @return void
+     * Drops contentable table for tests.
      */
     public function down()
     {

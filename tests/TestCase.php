@@ -2,14 +2,13 @@
 
 namespace KUHdo\Content\Tests;
 
-use Illuminate\Foundation\Application;
 use KUHdo\Content\ContentServiceProvider;
 use KUHdo\Content\Tests\Fixtures\CreateContentablesTable;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
     /**
-     * @return void
+     * Setup test environment.
      */
     public function setUp(): void
     {
@@ -17,8 +16,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * @param Application $app
-     * @return string[]
+     * Get the providers for the package test case.
      *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */
@@ -30,8 +28,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * @param Application $app
-     * @return void
+     * Get the environment to set up test case.
      *
      * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
      */

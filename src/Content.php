@@ -7,27 +7,17 @@ use KUHdo\Content\Actions\CreateContentAction;
 use KUHdo\Content\Actions\CreateTranslationAction;
 use KUHdo\Content\Contracts\Contentable;
 use KUHdo\Content\Models\Text;
-use Throwable;
 
 class Content
 {
-    /**
-     * @var Contentable
-     */
     private Contentable $contentable;
 
-    /**
-     * @var Collection
-     */
     private Collection $texts;
 
-    /**
-     * @var string|null
-     */
     private ?string $key;
 
     /**
-     *
+     * Constructs texts as Collection and key as null.
      */
     public function __construct()
     {
@@ -36,8 +26,7 @@ class Content
     }
 
     /**
-     * @param Contentable $contentable
-     * @return $this
+     * This method will create the contentable.
      */
     public function for(Contentable $contentable): self
     {
@@ -47,9 +36,7 @@ class Content
     }
 
     /**
-     * @param string $lang
-     * @param string $value
-     * @return $this
+     * This method will create a new text.
      */
     public function text(string $lang, string $value): self
     {
@@ -59,8 +46,7 @@ class Content
     }
 
     /**
-     * @param Collection $texts
-     * @return $this
+     * This method will create the texts. This is a collection of all texts from one translation.
      */
     public function texts(Collection $texts): self
     {
@@ -70,8 +56,7 @@ class Content
     }
 
     /**
-     * @param string $key
-     * @return $this
+     * This method will create the key of the translation.
      */
     public function key(string $key): self
     {
@@ -81,8 +66,7 @@ class Content
     }
 
     /**
-     * @return Models\Content
-     * @throws Throwable
+     * This method will save a new content with translation and it's texts.
      */
     public function save(): Models\Content
     {
@@ -91,11 +75,7 @@ class Content
     }
 
     /**
-     * @param Contentable $contentable
-     * @param Collection  $texts
-     * @param string|null $key
-     * @return Models\Content
-     * @throws Throwable
+     * This method will create a new content from a contentable with translation and it's texts.
      */
     public function create(Contentable $contentable, Collection $texts, ?string $key = null): Models\Content
     {

@@ -9,9 +9,7 @@ use KUHdo\Content\Models\Translation;
 class CreateContentAction
 {
     /**
-     * @param Contentable $contentable
-     * @param Translation $translation
-     * @return Content
+     * A new content gets created. The contentable model, with translation needs to be provided.
      */
     public function __invoke(Contentable $contentable, Translation $translation): Content
     {

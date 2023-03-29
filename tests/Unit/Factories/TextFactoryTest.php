@@ -11,8 +11,9 @@ class TextFactoryTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests if the text factory only creates texts for the set locales.
+     *
      * @covers \KUHdo\Content\Database\Factories\TextFactory::definition
-     * @return void
      */
     public function testTextModelShouldOnlyHasSetLocales()
     {

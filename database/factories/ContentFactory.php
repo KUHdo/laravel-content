@@ -11,7 +11,7 @@ class ContentFactory extends Factory
     protected $model = Content::class;
 
     /**
-     * @return array
+     * Define the model's default state.
      */
     public function definition(): array
     {

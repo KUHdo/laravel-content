@@ -11,8 +11,9 @@ class TranslationFactoryTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests translation factory creates translation incl. all texts for set locales.
+     *
      * @covers \KUHdo\Content\Database\Factories\TranslationFactory::full
-     * @return void
      */
     public function testTranslationWithTextsWithAllSetLocalesShouldBeCreated()
     {

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Database\Query\Builder;
 use KUHdo\Content\Actions\InterpolateTextAction;
 use KUHdo\Content\Database\Factories\ContentFactory;
 use KUHdo\Content\QueryBuilders\ContentQueryBuilder;
@@ -15,13 +14,10 @@ class Content extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
     public $guarded = [];
 
     /**
-     * @return ContentFactory
+     * Returns the Content Factory.
      */
     protected static function newFactory(): ContentFactory
     {
@@ -29,12 +25,7 @@ class Content extends Model
     }
 
     /**
-     * @inheritDoc
-     *
-     * @param Builder $query
-     * @return ContentQueryBuilder
-     *
-     * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
+     * Returns the query builder.
      */
     public function newEloquentBuilder($query): ContentQueryBuilder
     {
@@ -42,7 +33,7 @@ class Content extends Model
     }
 
     /**
-     * @return BelongsTo
+     * Relation to translation.
      */
     public function translation(): BelongsTo
     {
@@ -50,7 +41,7 @@ class Content extends Model
     }
 
     /**
-     * @return MorphTo
+     * The contentable is a morph to many relation.
      */
     public function contentable(): MorphTo
     {
@@ -58,7 +49,7 @@ class Content extends Model
     }
 
     /**
-     * @return string
+     * get the latest Text of the content.
      */
     public function getTextAttribute(): string
     {
@@ -66,8 +57,7 @@ class Content extends Model
     }
 
     /**
-     * @param array $vars
-     * @return string
+     * This method is called in the HasContent Traits. Search and replace style.
      */
     public function text(array $vars): string
     {

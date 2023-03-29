@@ -10,9 +10,7 @@ use Throwable;
 class ValidateRequiredTranslationTextsAction
 {
     /**
-     * @param Collection|Text $texts
-     * @return Collection
-     * @throws Throwable
+     * Checks if translation texts for required locales are provided.
      */
     public function __invoke(Collection|Text $texts): Collection
     {

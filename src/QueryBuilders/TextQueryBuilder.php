@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\App;
 class TextQueryBuilder extends Builder
 {
     /**
-     * @return Builder
+     * Returns the latest text which has Apps locale.
      */
     public function current(): Builder
     {
@@ -16,7 +16,7 @@ class TextQueryBuilder extends Builder
     }
 
     /**
-     * @return Builder
+     * Returns the latest text which is the default language.
      */
     public function default(): Builder
     {
@@ -24,7 +24,7 @@ class TextQueryBuilder extends Builder
     }
 
     /**
-     * @return Builder
+     * Returns the latest text which is the default language.
      */
     public function fallback(): Builder
     {

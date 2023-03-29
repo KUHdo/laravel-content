@@ -12,30 +12,30 @@ use Illuminate\Support\ServiceProvider;
 class ContentServiceProvider extends ServiceProvider
 {
     /**
-     * @return void
+     * Will boot up the package environment.
      */
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         Route::group([
             'prefix' => config('content.prefix'),
             'middleware' => config('content.middleware'),
-        ], fn() => $this->loadRoutesFrom(__DIR__.'/../routes/web.php'));
+        ], fn() => $this->loadRoutesFrom(__DIR__ . '/../routes/web.php'));
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('content.php'),
+                __DIR__ . '/../config/config.php' => config_path('content.php'),
             ], 'config');
         }
     }
 
     /**
-     * @return void
+     * Will register the package environment.
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'content');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'content');
 
         $this->app->bind('content', function () {
             return new Content();
@@ -47,8 +47,6 @@ class ContentServiceProvider extends ServiceProvider
 
     /**
      * Get the services provided by the provider.
-     *
-     * @return array
      */
     public function provides(): array
     {

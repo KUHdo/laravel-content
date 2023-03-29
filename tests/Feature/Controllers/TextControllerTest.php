@@ -16,11 +16,11 @@ class TextControllerTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\TextController::index
+     * Tests the index method of the text controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\TextController::index
      */
-    public function testIndex()
+    public function testIndex(): void
     {
         $translation = Translation::factory()->full()->has(Text::factory(['lang' => 'de']))->create();
         $content = Content::factory()->for(Contentable::factory())->for($translation)->create();
@@ -32,11 +32,11 @@ class TextControllerTest extends TestCase
     }
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\TextController::store
+     * Tests the store method of the text controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\TextController::store
      */
-    public function testStore()
+    public function testStore(): void
     {
         $content = Content::factory()->for(Contentable::factory())->create();
         $data = [
@@ -53,11 +53,11 @@ class TextControllerTest extends TestCase
     }
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\TextController::show
+     * Tests the show method of the text controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\TextController::show
      */
-    public function testShow()
+    public function testShow(): void
     {
         $content = Content::factory()->for(Contentable::factory())->create();
         $text = $content->translation->texts()->get()->random();
@@ -69,11 +69,11 @@ class TextControllerTest extends TestCase
     }
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\TextController::update
+     * Tests the update method of the text controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\TextController::update
      */
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $content = Content::factory()->for(Contentable::factory())->create();
         $text = $content->translation->texts()->get()->random();
@@ -87,11 +87,11 @@ class TextControllerTest extends TestCase
     }
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\TextController::destroy
+     * Tests the destroy method of the text controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\TextController::destroy
      */
-    public function testDestroy()
+    public function testDestroy(): void
     {
         config(['content.required' => ['de']]);
         $content = Content::factory()->for(Contentable::factory())->create();

@@ -12,8 +12,9 @@ class ContentFactoryTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests the content factory, if a content with full translation, incl. texts gets created.
+     *
      * @covers \KUHdo\Content\Database\Factories\ContentFactory::definition
-     * @return void
      */
     public function testContentWithFullTranslationShouldBeCreated()
     {

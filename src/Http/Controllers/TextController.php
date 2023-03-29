@@ -12,13 +12,11 @@ use KUHdo\Content\Http\Resources\TextResource;
 use KUHdo\Content\Models\Content;
 use KUHdo\Content\Models\Text;
 use Symfony\Component\HttpFoundation\Response;
-use Throwable;
 
 class TextController
 {
     /**
-     * @param Content $content
-     * @return TextCollection
+     * Returns a text collection of the requested content.
      */
     public function index(Content $content): TextCollection
     {
@@ -26,9 +24,7 @@ class TextController
     }
 
     /**
-     * @param TextStoreRequest $request
-     * @param Content          $content
-     * @return JsonResponse
+     * Stores a text for the content via its translation.
      */
     public function store(TextStoreRequest $request, Content $content): JsonResponse
     {
@@ -39,8 +35,7 @@ class TextController
     }
 
     /**
-     * @param Text $text
-     * @return TextResource
+     * Returns the text as a resource.
      */
     public function show(Text $text): TextResource
     {
@@ -48,10 +43,7 @@ class TextController
     }
 
     /**
-     * @param TextUpdateRequest $request
-     * @param Content           $content
-     * @param Text              $text
-     * @return TextResource
+     * Updates the translation by creating a new text.
      */
     public function update(TextUpdateRequest $request, Content $content, Text $text): TextResource
     {
@@ -61,12 +53,9 @@ class TextController
     }
 
     /**
-     * @param Content $content
-     * @param Text    $text
-     * @return \Illuminate\Http\Response
-     * @throws Throwable
+     * Deletes a text if it passes the DeleteTextAction.
      */
-    public function destroy(Content $content, Text $text): \Illuminate\Http\Response
+    public function destroy(Content $content, Text $text): Response
     {
         (new DeleteTextAction)($content->translation, $text);
 

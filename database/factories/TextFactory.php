@@ -11,7 +11,7 @@ class TextFactory extends Factory
     protected $model = Text::class;
 
     /**
-     * @return array
+     * Define the model's default state.
      */
     public function definition(): array
     {

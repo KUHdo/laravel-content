@@ -12,8 +12,9 @@ class InterpolateTextActionTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Test that text value should be interpolated. Means the text will inject the provided parameters in the text placeholder.
+     *
      * @covers \KUHdo\Content\Actions\InterpolateTextAction
-     * @return void
      */
     public function testTextValueShouldBeInterpolated()
     {

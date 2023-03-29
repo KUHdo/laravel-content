@@ -10,7 +10,7 @@ abstract class Factory
     use WithFaker;
 
     /**
-     *
+     * Test factory set up faker constructor.
      */
     public function __construct()
     {
@@ -18,7 +18,7 @@ abstract class Factory
     }
 
     /**
-     * @return static
+     * Test factory create new instance of factory self.
      */
     public static function new(): self
     {
@@ -26,15 +26,12 @@ abstract class Factory
     }
 
     /**
-     * @param array $extra
-     * @return mixed
+     * Test factory create.
      */
     abstract public function create(array $extra = []): mixed;
 
     /**
-     * @param integer $times
-     * @param array   $extra
-     * @return Collection
+     * Factory times.
      */
     public function times(int $times, array $extra = []): Collection
     {

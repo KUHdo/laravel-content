@@ -5,7 +5,6 @@ namespace KUHdo\Content\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Query\Builder;
 use KUHdo\Content\Database\Factories\TextFactory;
 use KUHdo\Content\QueryBuilders\TextQueryBuilder;
 
@@ -13,13 +12,10 @@ class Text extends Model
 {
     use HasFactory;
 
-    /**
-     * @var array
-     */
     protected $guarded = [];
 
     /**
-     * @return TextFactory
+     * Returns the Text Factory.
      */
     protected static function newFactory(): TextFactory
     {
@@ -27,12 +23,7 @@ class Text extends Model
     }
 
     /**
-     * @inheritDoc
-     *
-     * @param Builder $query
-     * @return TextQueryBuilder
-     *
-     * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
+     * Returns the query builder.
      */
     public function newEloquentBuilder($query): TextQueryBuilder
     {
@@ -40,7 +31,7 @@ class Text extends Model
     }
 
     /**
-     * @return BelongsToMany
+     * A text belongs to translations.
      */
     public function translations(): BelongsToMany
     {

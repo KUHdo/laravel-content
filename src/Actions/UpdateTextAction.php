@@ -8,10 +8,7 @@ use KUHdo\Content\Models\Translation;
 class UpdateTextAction
 {
     /**
-     * @param Translation $translation
-     * @param Text        $text
-     * @param array       $data
-     * @return Text
+     * Updates a translation text by creating a new text and binds it to translation.
      */
     public function __invoke(Translation $translation, Text $text, array $data): Text
     {

@@ -4,15 +4,11 @@ namespace KUHdo\Content\Actions;
 
 use Illuminate\Database\Eloquent\Collection;
 use KUHdo\Content\Models\Translation;
-use Throwable;
 
 class CreateTranslationAction
 {
     /**
-     * @param Collection  $texts
-     * @param string|null $key
-     * @return Translation
-     * @throws Throwable
+     * Saves the translation with its key, and adds the texts to it.
      */
     public function __invoke(Collection $texts, string $key = null): Translation
     {

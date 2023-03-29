@@ -16,8 +16,9 @@ class TranslationTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests the translation model new factory.
+     *
      * @Covers \KUHdo\Content\Models\Translation::newFactory
-     * @return void
      */
     public function testNewFactory()
     {
@@ -25,8 +26,9 @@ class TranslationTest extends TestCase
     }
 
     /**
+     * Tests the translation model new eloquent builder.
+     *
      * @Covers \KUHdo\Content\Models\Translation::newEloquentBuilder
-     * @return void
      */
     public function testNewEloquentBuilder()
     {
@@ -34,8 +36,9 @@ class TranslationTest extends TestCase
     }
 
     /**
+     * Tests the translation model relation to texts.
+     *
      * @Covers \KUHdo\Content\Models\Translation::texts
-     * @return void
      */
     public function testTexts()
     {
@@ -43,8 +46,9 @@ class TranslationTest extends TestCase
     }
 
     /**
+     * Tests the translation model relation to contents.
+     *
      * @Covers \KUHdo\Content\Models\Translation::contents
-     * @return void
      */
     public function testContents()
     {
@@ -52,8 +56,9 @@ class TranslationTest extends TestCase
     }
 
     /**
+     * Tests the translation model get the current text attribute.
+     *
      * @Covers \KUHdo\Content\Models\Translation::getCurrentTextAttribute
-     * @return void
      */
     public function testGetCurrentTextAttribute()
     {

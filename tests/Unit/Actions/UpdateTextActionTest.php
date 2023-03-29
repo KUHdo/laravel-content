@@ -12,8 +12,9 @@ class UpdateTextActionTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Test that texts should be possible to update through action.
+     *
      * @Covers \KUHdo\Content\Actions\UpdateTextAction
-     * @return void
      */
     public function testTextShouldBeUpdated()
     {

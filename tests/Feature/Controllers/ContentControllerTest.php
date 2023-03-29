@@ -15,11 +15,11 @@ class ContentControllerTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\ContentController::index
+     * Tests the index method of content controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\ContentController::index
      */
-    public function testIndex()
+    public function testIndex(): void
     {
         $contents = Content::factory()->count(10)->for(Contentable::factory())->create();
 
@@ -31,11 +31,11 @@ class ContentControllerTest extends TestCase
     }
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\ContentController::store
+     * Tests the store method of content controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\ContentController::store
      */
-    public function testStore()
+    public function testStore(): void
     {
         config(['content.required' => ['de', 'en']]);
         $key = 'TestKey';
@@ -61,11 +61,11 @@ class ContentControllerTest extends TestCase
     }
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\ContentController::show
+     * Tests the show method of content controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\ContentController::show
      */
-    public function testShow()
+    public function testShow(): void
     {
         $content = Content::factory()->for(Contentable::factory())->create();
 
@@ -76,11 +76,11 @@ class ContentControllerTest extends TestCase
     }
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\ContentController::update
+     * Tests the update method of content controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\ContentController::update
      */
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $content = Content::factory()->for(Contentable::factory())->create();
         $data = ['key' => 'testKey123'];
@@ -94,11 +94,11 @@ class ContentControllerTest extends TestCase
     }
 
     /**
-     * @Covers \KUHdo\Content\Http\Controllers\ContentController::destroy
+     * Tests the destroy method of content controller.
      *
-     * @return void
+     * @Covers \KUHdo\Content\Http\Controllers\ContentController::destroy
      */
-    public function testDestroy()
+    public function testDestroy(): void
     {
         $content = Content::factory()->for(Contentable::factory())->create();
 

@@ -2,7 +2,6 @@
 
 namespace KUHdo\Content\Http\Resources;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use KUHdo\Content\Models\Content;
 
@@ -10,10 +9,7 @@ use KUHdo\Content\Models\Content;
 class ContentResource extends JsonResource
 {
     /**
-     * @param Request $request
-     * @return array
-     *
-     * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
+     * Returns an array of the content model with translation and texts.
      */
     public function toArray($request): array
     {

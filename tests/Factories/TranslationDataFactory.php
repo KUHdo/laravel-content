@@ -7,8 +7,7 @@ use KUHdo\Content\DataTransferObjects\TranslationData;
 class TranslationDataFactory extends Factory
 {
     /**
-     * @param array $extra
-     * @return TranslationData
+     * Test factory create translation data.
      */
     public function create(array $extra = []): TranslationData
     {

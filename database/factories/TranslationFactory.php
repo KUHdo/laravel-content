@@ -11,7 +11,7 @@ class TranslationFactory extends Factory
     protected $model = Translation::class;
 
     /**
-     * @return array
+     * Define the model's default state.
      */
     public function definition(): array
     {
@@ -21,7 +21,7 @@ class TranslationFactory extends Factory
     }
 
     /**
-     * @return $this
+     * Define the model's full state, incl locale.
      */
     public function full(): static
     {

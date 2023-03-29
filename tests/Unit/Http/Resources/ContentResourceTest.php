@@ -14,8 +14,9 @@ class ContentResourceTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests the content resource to array function.
+     *
      * @Covers \KUHdo\Content\Http\Resources\ContentResource::toArray
-     * @return void
      */
     public function testMake()
     {

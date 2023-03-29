@@ -7,9 +7,7 @@ use KUHdo\Content\Models\Translation;
 class InterpolateTranslationAction
 {
     /**
-     * @param Translation $translation
-     * @param array       $vars
-     * @return Translation
+     * Adds the vars, placeholder for text injection, to the translation.
      */
     public function __invoke(Translation $translation, array $vars): Translation
     {

@@ -16,7 +16,7 @@ class ContentTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * @return void
+     * Tests localized text should be returned from content.
      */
     public function testLocalizedTextShouldBeReturnedFromContent()
     {
@@ -26,26 +26,28 @@ class ContentTest extends TestCase
             new Text(['lang' => 'fr', 'value' => 'Bonjour {VAR}']),
             new Text(['lang' => 'es', 'value' => 'Hola {VAR}']),
         ]);
+        $key = 'Test';
 
         $contentable = Contentable::factory()->create();
-        Content::for($contentable)->texts($texts)->save();
 
-        collect(config('content.locales'))->each(function ($locale) use ($contentable, $texts) {
+        Content::for($contentable)->key($key)->texts($texts)->save();
+
+        collect(config('content.locales'))->each(function ($locale) use ($key, $contentable, $texts) {
             App::setLocale($locale);
             $expected = collect($texts)->first(fn($text) => $text->lang === $locale)?->value;
             $this->assertEquals(
                 $expected,
-                $contentable->getContent()
+                $contentable->getContent($key)
             );
             $this->assertEquals(
                 Str::replace("{VAR}", "World", $expected),
-                $contentable->getContent(['VAR' => 'World'])
+                $contentable->getContent($key, ['VAR' => 'World'])
             );
         });
     }
 
     /**
-     * @return void
+     * Tests fallback text should be returned from content.
      */
     public function testFallbackTextShouldBeReturnedFromContent()
     {
@@ -53,12 +55,13 @@ class ContentTest extends TestCase
             new Text(['lang' => 'de', 'value' => 'Hallo']),
             new Text(['lang' => 'en', 'value' => 'Hello']),
         ]);
+        $key = ('Test');
 
         $contentable = Contentable::factory()->create();
-        Content::for($contentable)->texts($texts)->save();
+        Content::for($contentable)->key($key)->texts($texts)->save();
 
         App::setLocale('fr');
 
-        $this->assertEquals('Hello', $contentable->getContent());
+        $this->assertEquals('Hello', $contentable->getContent($key));
     }
 }

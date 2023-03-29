@@ -15,8 +15,9 @@ class ContentTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests the content model new factory.
+     *
      * @Covers \KUHdo\Content\Models\Content::newFactory
-     * @return void
      */
     public function testNewFactory()
     {
@@ -24,8 +25,9 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests the content model new eloquent builder.
+     *
      * @Covers \KUHdo\Content\Models\Content::newEloquentBuilder
-     * @return void
      */
     public function testNewEloquentBuilder()
     {
@@ -33,8 +35,9 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests the content model relation to translation.
+     *
      * @Covers \KUHdo\Content\Models\Content::translation
-     * @return void
      */
     public function testTranslation()
     {
@@ -42,8 +45,9 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests the content model contentable.
+     *
      * @Covers \KUHdo\Content\Models\Content::contentable
-     * @return void
      */
     public function testContentable()
     {
@@ -53,8 +57,9 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests the content model get text attribute.
+     *
      * @Covers \KUHdo\Content\Models\Content::getTextAttribute
-     * @return void
      */
     public function testGetTextAttribute()
     {
@@ -64,8 +69,9 @@ class ContentTest extends TestCase
     }
 
     /**
+     * Tests the content model relation to text.
+     *
      * @Covers \KUHdo\Content\Models\Content::text
-     * @return void
      */
     public function testText()
     {

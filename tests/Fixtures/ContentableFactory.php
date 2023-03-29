@@ -6,13 +6,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ContentableFactory extends Factory
 {
-    /**
-     * @var string
-     */
+    
     protected $model = Contentable::class;
 
     /**
-     * @return array
+     * Defines contentable factory.
      */
     public function definition(): array
     {

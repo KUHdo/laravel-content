@@ -13,8 +13,9 @@ class TextQueryBuilderTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Tests the text query builder. Get the current text.
+     *
      * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::current
-     * @return void
      */
     public function testCurrent()
     {
@@ -34,8 +35,9 @@ class TextQueryBuilderTest extends TestCase
     }
 
     /**
+     * Tests the text query builder. Get the default text.
+     *
      * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::default
-     * @return void
      */
     public function testDefault()
     {
@@ -57,8 +59,9 @@ class TextQueryBuilderTest extends TestCase
     }
 
     /**
+     * Tests the text query builder. Get the fallback text.
+     *
      * @covers \KUHdo\Content\QueryBuilders\TextQueryBuilder::fallback
-     * @return void
      */
     public function testFallback()
     {

@@ -2,17 +2,13 @@
 
 namespace KUHdo\Content\Http\Resources;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 /** @see \KUHdo\Content\Models\Text */
 class TextCollection extends ResourceCollection
 {
     /**
-     * @param Request $request
-     * @return array
-     *
-     * phpcs:disable Squiz.Commenting.FunctionComment.TypeHintMissing
+     * Returns an array of the text collection.
      */
     public function toArray($request)
     {
