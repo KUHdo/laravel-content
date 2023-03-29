@@ -14,6 +14,9 @@ class Text extends Model
 
     protected $guarded = [];
 
+    /**
+     * Returns the Text Factory.
+     */
     protected static function newFactory(): TextFactory
     {
         return TextFactory::new();

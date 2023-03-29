@@ -18,10 +18,6 @@ trait HasContents
     /**
      * Here the contents text will be returned. Content will be provided by slug.
      * If there is vars, like placeholder for text injection, it will be injected before text is returned.
-     *
-     * @param string $slug
-     * @param array|null $vars
-     * @return string
      */
     public function getContent(string $slug, array $vars = null): string
     {

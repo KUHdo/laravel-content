@@ -15,6 +15,9 @@ class Translation extends Model
 
     protected $guarded = [];
 
+    /**
+     * Returns the Translation Factory.
+     */
     protected static function newFactory(): TranslationFactory
     {
         return TranslationFactory::new();

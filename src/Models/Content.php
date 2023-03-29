@@ -16,13 +16,16 @@ class Content extends Model
 
     public $guarded = [];
 
+    /**
+     * Returns the Content Factory.
+     */
     protected static function newFactory(): ContentFactory
     {
         return ContentFactory::new();
     }
 
     /**
-     * Returns the query builder.*
+     * Returns the query builder.
      */
     public function newEloquentBuilder($query): ContentQueryBuilder
     {
