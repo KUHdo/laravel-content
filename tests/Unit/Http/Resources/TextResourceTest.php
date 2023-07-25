@@ -15,7 +15,7 @@ class TextResourceTest extends TestCase
     /**
      * Tests the text resource to array function.
      *
-     * @Covers \KUHdo\Content\Http\Resources\TextResource::toArray
+     * @Covers TextResource::toArray
      */
     public function testMake()
     {

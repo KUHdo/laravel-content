@@ -16,7 +16,7 @@ class TranslationTest extends TestCase
     /**
      * Tests the creation of a translation model.
      *
-     * @Covers \KUHdo\Content\Models\Translation::texts
+     * @Covers Translation::texts
      */
     public function testATranslationShouldBeCreated()
     {
@@ -41,7 +41,7 @@ class TranslationTest extends TestCase
     /**
      * Tests the deletion of a translation model.
      *
-     * @Covers \KUHdo\Content\Models\Translation::texts
+     * @Covers Translation::texts
      */
     public function testATranslationShouldBeDeleted()
     {
@@ -65,7 +65,7 @@ class TranslationTest extends TestCase
     /**
      * Tests the relation to text of a translation model. The latest text should be returned.
      *
-     * @Covers \KUHdo\Content\Models\Translation::getCurrentTextAttribute
+     * @Covers Translation::getCurrentTextAttribute
      */
     public function testCurrentTextShouldReturnText()
     {

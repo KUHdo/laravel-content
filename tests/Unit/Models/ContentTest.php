@@ -17,7 +17,7 @@ class ContentTest extends TestCase
     /**
      * Tests the content model new factory.
      *
-     * @Covers \KUHdo\Content\Models\Content::newFactory
+     * @Covers Content::newFactory
      */
     public function testNewFactory()
     {
@@ -27,7 +27,7 @@ class ContentTest extends TestCase
     /**
      * Tests the content model new eloquent builder.
      *
-     * @Covers \KUHdo\Content\Models\Content::newEloquentBuilder
+     * @Covers Content::newEloquentBuilder
      */
     public function testNewEloquentBuilder()
     {
@@ -37,7 +37,7 @@ class ContentTest extends TestCase
     /**
      * Tests the content model relation to translation.
      *
-     * @Covers \KUHdo\Content\Models\Content::translation
+     * @Covers Content::translation
      */
     public function testTranslation()
     {
@@ -47,7 +47,7 @@ class ContentTest extends TestCase
     /**
      * Tests the content model contentable.
      *
-     * @Covers \KUHdo\Content\Models\Content::contentable
+     * @Covers Content::contentable
      */
     public function testContentable()
     {
@@ -59,7 +59,7 @@ class ContentTest extends TestCase
     /**
      * Tests the content model get text attribute.
      *
-     * @Covers \KUHdo\Content\Models\Content::getTextAttribute
+     * @Covers Content::getTextAttribute
      */
     public function testGetTextAttribute()
     {
@@ -71,7 +71,7 @@ class ContentTest extends TestCase
     /**
      * Tests the content model relation to text.
      *
-     * @Covers \KUHdo\Content\Models\Content::text
+     * @Covers Content::text
      */
     public function testText()
     {

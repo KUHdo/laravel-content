@@ -18,7 +18,7 @@ class TranslationTest extends TestCase
     /**
      * Tests the translation model new factory.
      *
-     * @Covers \KUHdo\Content\Models\Translation::newFactory
+     * @Covers Translation::newFactory
      */
     public function testNewFactory()
     {
@@ -28,7 +28,7 @@ class TranslationTest extends TestCase
     /**
      * Tests the translation model new eloquent builder.
      *
-     * @Covers \KUHdo\Content\Models\Translation::newEloquentBuilder
+     * @Covers Translation::newEloquentBuilder
      */
     public function testNewEloquentBuilder()
     {
@@ -38,7 +38,7 @@ class TranslationTest extends TestCase
     /**
      * Tests the translation model relation to texts.
      *
-     * @Covers \KUHdo\Content\Models\Translation::texts
+     * @Covers Translation::texts
      */
     public function testTexts()
     {
@@ -48,7 +48,7 @@ class TranslationTest extends TestCase
     /**
      * Tests the translation model relation to contents.
      *
-     * @Covers \KUHdo\Content\Models\Translation::contents
+     * @Covers Translation::contents
      */
     public function testContents()
     {
@@ -58,7 +58,7 @@ class TranslationTest extends TestCase
     /**
      * Tests the translation model get the current text attribute.
      *
-     * @Covers \KUHdo\Content\Models\Translation::getCurrentTextAttribute
+     * @Covers Translation::getCurrentTextAttribute
      */
     public function testGetCurrentTextAttribute()
     {

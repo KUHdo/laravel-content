@@ -14,7 +14,7 @@ class UpdateTextActionTest extends TestCase
     /**
      * Test that texts should be possible to update through action.
      *
-     * @Covers \KUHdo\Content\Actions\UpdateTextAction
+     * @Covers UpdateTextAction
      */
     public function testTextShouldBeUpdated()
     {
