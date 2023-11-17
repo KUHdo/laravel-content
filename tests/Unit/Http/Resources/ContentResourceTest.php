@@ -34,7 +34,7 @@ class ContentResourceTest extends TestCase
                     'contentable_id' => $content->contentable->id,
                     'created_at' => Carbon::make($content->created_at)->toIsoString(),
                     'updated_at' => Carbon::make($content->updated_at)->toIsoString(),
-                ]
+                ],
             ],
             $resource
         );

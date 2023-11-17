@@ -30,7 +30,7 @@ class ContentController
         $contentable = (new $data['contentable_type'])->find($data['contentable_id']);
 
         $content = ContentFacade::for($contentable);
-        collect($data['texts'])->reduce(fn($content, $text) => $content->text($text['lang'], $text['value']), $content);
+        collect($data['texts'])->reduce(fn ($content, $text) => $content->text($text['lang'], $text['value']), $content);
         if (isset($data['key'])) {
             $content->key($data['key']);
         }

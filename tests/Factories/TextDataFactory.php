@@ -25,6 +25,6 @@ class TextDataFactory extends Factory
     public function createAll(): Collection
     {
         return collect(config('content.locales'))
-            ->map(fn($locale) => self::create(['lang' => $locale]));
+            ->map(fn ($locale) => self::create(['lang' => $locale]));
     }
 }

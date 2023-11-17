@@ -9,8 +9,8 @@ use KUHdo\Content\Traits\HasContents;
 
 class Contentable extends Model implements ContentableInterface
 {
-    use HasFactory;
     use HasContents;
+    use HasFactory;
 
     /**
      * Returns contentable factory.

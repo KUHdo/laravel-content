@@ -13,7 +13,7 @@ class InterpolateTranslationAction
     {
         return $translation->replicate()->fill([
             'texts' => $translation->texts
-                ->map(fn($text) => (new InterpolateTextAction)($text, $vars))
+                ->map(fn ($text) => (new InterpolateTextAction)($text, $vars)),
         ]);
     }
 }

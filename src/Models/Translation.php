@@ -36,7 +36,7 @@ class Translation extends Model
      */
     public function texts(): BelongsToMany
     {
-        return $this->belongsToMany(Text::Class);
+        return $this->belongsToMany(Text::class);
     }
 
     /**

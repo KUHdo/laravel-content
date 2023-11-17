@@ -11,7 +11,7 @@ class DeleteTextAction
     /**
      * Deletes a text if it's locale is not required.
      */
-    public function __invoke(Translation $translation, Text $text): null| bool
+    public function __invoke(Translation $translation, Text $text): ?bool
     {
         $lang = $text->lang;
         $required = collect(config('content.required'))->contains($lang);

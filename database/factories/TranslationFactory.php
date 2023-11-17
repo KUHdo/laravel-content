@@ -16,7 +16,7 @@ class TranslationFactory extends Factory
     public function definition(): array
     {
         return [
-            'key' => $this->faker->word
+            'key' => $this->faker->word,
         ];
     }
 
@@ -27,7 +27,7 @@ class TranslationFactory extends Factory
     {
         return collect(config('content.locales'))
             ->reduce(
-                fn($factory, $locale) => $factory->has(Text::factory(['lang' => $locale])),
+                fn ($factory, $locale) => $factory->has(Text::factory(['lang' => $locale])),
                 $this
             );
     }

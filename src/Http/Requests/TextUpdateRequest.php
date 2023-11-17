@@ -14,7 +14,7 @@ class TextUpdateRequest extends FormRequest
     {
         return [
             'lang' => ['sometimes', Rule::in(config('content.locales'))],
-            'value' => ['sometimes', 'string']
+            'value' => ['sometimes', 'string'],
         ];
     }
 }

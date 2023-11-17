@@ -24,8 +24,8 @@ class TranslationTest extends TestCase
             'key' => 'TestTranslation',
             'texts' => collect([
                 Text::create(['lang' => 'en', 'value' => 'Hello']),
-                Text::create(['lang' => 'de', 'value' => 'Hallo'])
-            ])
+                Text::create(['lang' => 'de', 'value' => 'Hallo']),
+            ]),
         ]);
 
         $translation = Translation::create(['key' => $data->get('key')]);
@@ -53,13 +53,13 @@ class TranslationTest extends TestCase
 
         $this->assertDatabaseMissing('translations', $translation->toArray());
 
-        $pivots->each(fn($pivot) => $this->assertDatabaseMissing('text_translation', [
+        $pivots->each(fn ($pivot) => $this->assertDatabaseMissing('text_translation', [
             'id' => $pivot->id,
             'translation_id' => $pivot->translation_id,
             'text_id' => $pivot->text_id,
         ]));
 
-        $texts->each(fn($text) => $this->assertDatabaseMissing('texts', $text->toArray()));
+        $texts->each(fn ($text) => $this->assertDatabaseMissing('texts', $text->toArray()));
     }
 
     /**
@@ -71,7 +71,7 @@ class TranslationTest extends TestCase
     {
         config([
             'content.locales' => ['en', 'es'],
-            'content.fallback' => 'es'
+            'content.fallback' => 'es',
         ]);
 
         $translation = Translation::factory()->full()->create();

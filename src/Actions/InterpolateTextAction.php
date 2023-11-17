@@ -14,9 +14,9 @@ class InterpolateTextAction
     {
         return $text->replicate()->fill([
             'value' => collect($vars)->reduce(
-                fn($textValue, $value, $key) => Str::replace("{" . $key . "}", $value, $textValue),
+                fn ($textValue, $value, $key) => Str::replace('{'.$key.'}', $value, $textValue),
                 $text->value
-            )
+            ),
         ]);
     }
 }

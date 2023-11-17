@@ -31,7 +31,7 @@ class TextResourceTest extends TestCase
                     'value' => $text->value,
                     'created_at' => Carbon::make($text->created_at)->toIsoString(),
                     'updated_at' => Carbon::make($text->updated_at)->toIsoString(),
-                ]
+                ],
             ],
             $resource
         );

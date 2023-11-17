@@ -23,11 +23,11 @@ class TextQueryBuilderTest extends TestCase
         App::setLocale('de');
 
         $oldText = Text::factory([
-            'lang' => App::getLocale()
+            'lang' => App::getLocale(),
         ])->create();
         $newText = Text::factory([
             'lang' => App::getLocale(),
-            'created_at' => (new Carbon($oldText->created_at))->addSecond()
+            'created_at' => (new Carbon($oldText->created_at))->addSecond(),
         ])->create();
 
         $this->assertEquals(Text::current()->first()->toArray(), $newText->toArray());
@@ -43,15 +43,15 @@ class TextQueryBuilderTest extends TestCase
     {
         config([
             'content.locales' => ['en', 'de', 'es'],
-            'content.default' => 'es'
+            'content.default' => 'es',
         ]);
 
         $oldText = Text::factory([
-            'lang' => config('content.default')
+            'lang' => config('content.default'),
         ])->create();
         $newText = Text::factory([
             'lang' => config('content.default'),
-            'created_at' => (new Carbon($oldText->created_at))->addSecond()
+            'created_at' => (new Carbon($oldText->created_at))->addSecond(),
         ])->create();
 
         $this->assertEquals(Text::default()->first()->toArray(), $newText->toArray());
@@ -67,15 +67,15 @@ class TextQueryBuilderTest extends TestCase
     {
         config([
             'content.locales' => ['en', 'de', 'es'],
-            'content.fallback' => 'es'
+            'content.fallback' => 'es',
         ]);
 
         $oldText = Text::factory([
-            'lang' => config('content.fallback')
+            'lang' => config('content.fallback'),
         ])->create();
         $newText = Text::factory([
             'lang' => config('content.fallback'),
-            'created_at' => (new Carbon($oldText->created_at))->addSecond()
+            'created_at' => (new Carbon($oldText->created_at))->addSecond(),
         ])->create();
 
         $this->assertEquals(Text::fallback()->first()->toArray(), $newText->toArray());

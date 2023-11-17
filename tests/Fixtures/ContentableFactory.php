@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ContentableFactory extends Factory
 {
-    
     protected $model = Contentable::class;
 
     /**

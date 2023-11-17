@@ -14,7 +14,7 @@ class TranslationDataFactory extends Factory
         return new TranslationData(
             key: $extra['key'] ?? $this->faker->word,
             texts: $extra['texts'] ?? collect(config('content.locales'))
-                ->map(fn($locale) => TextDataFactory::new()->create(['lang' => $locale]))
+                ->map(fn ($locale) => TextDataFactory::new()->create(['lang' => $locale]))
                 ->all()
         );
     }

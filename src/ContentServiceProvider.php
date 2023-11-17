@@ -16,16 +16,16 @@ class ContentServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         Route::group([
             'prefix' => config('content.prefix'),
             'middleware' => config('content.middleware'),
-        ], fn() => $this->loadRoutesFrom(__DIR__ . '/../routes/web.php'));
+        ], fn () => $this->loadRoutesFrom(__DIR__.'/../routes/web.php'));
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('content.php'),
+                __DIR__.'/../config/config.php' => config_path('content.php'),
             ], 'config');
         }
     }
@@ -35,7 +35,7 @@ class ContentServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'content');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'content');
 
         $this->app->bind('content', function () {
             return new Content();

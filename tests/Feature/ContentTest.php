@@ -34,13 +34,13 @@ class ContentTest extends TestCase
 
         collect(config('content.locales'))->each(function ($locale) use ($key, $contentable, $texts) {
             App::setLocale($locale);
-            $expected = collect($texts)->first(fn($text) => $text->lang === $locale)?->value;
+            $expected = collect($texts)->first(fn ($text) => $text->lang === $locale)?->value;
             $this->assertEquals(
                 $expected,
                 $contentable->getContent($key)
             );
             $this->assertEquals(
-                Str::replace("{VAR}", "World", $expected),
+                Str::replace('{VAR}', 'World', $expected),
                 $contentable->getContent($key, ['VAR' => 'World'])
             );
         });

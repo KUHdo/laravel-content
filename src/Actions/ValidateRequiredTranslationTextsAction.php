@@ -5,7 +5,6 @@ namespace KUHdo\Content\Actions;
 use Illuminate\Database\Eloquent\Collection;
 use KUHdo\Content\Exceptions\MissingTranslationTextException;
 use KUHdo\Content\Models\Text;
-use Throwable;
 
 class ValidateRequiredTranslationTextsAction
 {
@@ -19,7 +18,7 @@ class ValidateRequiredTranslationTextsAction
         }
 
         $missing = collect(config('content.required'))
-            ->filter(fn($locale) => !$texts->contains('lang', $locale));
+            ->filter(fn ($locale) => ! $texts->contains('lang', $locale));
 
         throw_if(
             $missing->isNotEmpty(),

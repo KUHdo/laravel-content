@@ -22,23 +22,23 @@ class InterpolateTextActionTest extends TestCase
             [
                 'fixture' => new Text([
                     'lang' => 'en',
-                    'value' => 'Hello {FIRST_NAME} {LAST_NAME}. {VAR_1} is not {VAR_2}!'
+                    'value' => 'Hello {FIRST_NAME} {LAST_NAME}. {VAR_1} is not {VAR_2}!',
                 ]),
                 'expected' => new Text([
                     'lang' => 'en',
-                    'value' => 'Hello Test User. A is not B!'
-                ])
+                    'value' => 'Hello Test User. A is not B!',
+                ]),
             ],
             [
                 'fixture' => new Text([
                     'lang' => 'de',
-                    'value' => 'Hallo {FIRST_NAME} {LAST_NAME}. {VAR_1} ist nicht {VAR_2}!'
+                    'value' => 'Hallo {FIRST_NAME} {LAST_NAME}. {VAR_1} ist nicht {VAR_2}!',
                 ]),
                 'expected' => new Text([
                     'lang' => 'de',
-                    'value' => 'Hallo Test User. A ist nicht B!'
-                ])
-            ]
+                    'value' => 'Hallo Test User. A ist nicht B!',
+                ]),
+            ],
         ]);
 
         $vars = ['FIRST_NAME' => 'Test', 'LAST_NAME' => 'User', 'VAR_1' => 'A', 'VAR_2' => 'B'];

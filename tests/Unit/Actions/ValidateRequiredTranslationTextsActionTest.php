@@ -17,6 +17,7 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
      * Tests if validated texts are returned.
      *
      * @covers \KUHdo\Content\Actions\ValidateRequiredTranslationTextsAction
+     *
      * @throws Throwable
      */
     public function testValidatedTextsShouldBeReturned()
@@ -37,6 +38,7 @@ class ValidateRequiredTranslationTextsActionTest extends TestCase
      * Tests that exception is thrown.
      *
      * @covers \KUHdo\Content\Actions\ValidateRequiredTranslationTextsAction
+     *
      * @throws Throwable
      */
     public function testExceptionShouldBeThrown()

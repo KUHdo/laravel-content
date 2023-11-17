@@ -23,7 +23,7 @@ class ContentControllerTest extends TestCase
     {
         $contents = Content::factory()->count(10)->for(Contentable::factory())->create();
 
-        $result = $this->get(route("contents.index"));
+        $result = $this->get(route('contents.index'));
 
         $result->assertOk();
         $result->assertJsonCount($contents->count(), 'data');
@@ -52,7 +52,7 @@ class ContentControllerTest extends TestCase
             'contentable_id' => $contentable->id,
         ];
 
-        $result = $this->post(route("contents.store"), $data);
+        $result = $this->post(route('contents.store'), $data);
 
         $content = Content::find($result->json('data.id'));
 
@@ -69,7 +69,7 @@ class ContentControllerTest extends TestCase
     {
         $content = Content::factory()->for(Contentable::factory())->create();
 
-        $result = $this->get(route("contents.show", $content));
+        $result = $this->get(route('contents.show', $content));
 
         $result->assertOk();
         $result->assertJson(ContentResource::make($content)->response()->getData(true));
@@ -85,7 +85,7 @@ class ContentControllerTest extends TestCase
         $content = Content::factory()->for(Contentable::factory())->create();
         $data = ['key' => 'testKey123'];
 
-        $result = $this->patch(route("contents.update", $content), $data);
+        $result = $this->patch(route('contents.update', $content), $data);
 
         $content = Content::find($result->json('data.id'));
 
@@ -102,9 +102,9 @@ class ContentControllerTest extends TestCase
     {
         $content = Content::factory()->for(Contentable::factory())->create();
 
-        $result = $this->delete(route("contents.show", $content));
+        $result = $this->delete(route('contents.show', $content));
 
         $result->assertNoContent();
-        $this->assertEquals("", $result->getContent());
+        $this->assertEquals('', $result->getContent());
     }
 }

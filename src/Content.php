@@ -71,13 +71,14 @@ class Content
     public function save(): Models\Content
     {
         $translation = (new CreateTranslationAction)($this->texts, $this->key);
+
         return (new CreateContentAction)($this->contentable, $translation);
     }
 
     /**
      * This method will create a new content from a contentable with translation and it's texts.
      */
-    public function create(Contentable $contentable, Collection $texts, ?string $key = null): Models\Content
+    public function create(Contentable $contentable, Collection $texts, string $key = null): Models\Content
     {
         return $this->for($contentable)->texts($texts)->key($key)->save();
     }

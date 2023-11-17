@@ -37,6 +37,6 @@ abstract class Factory
     {
         return collect()
             ->times($times)
-            ->map(fn() => $this->create($extra));
+            ->map(fn () => $this->create($extra));
     }
 }

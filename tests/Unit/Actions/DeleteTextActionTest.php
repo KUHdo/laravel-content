@@ -25,7 +25,7 @@ class DeleteTextActionTest extends TestCase
 
         config([
             'content.locales' => ['de', 'en', 'es'],
-            'content.required' => ['de', 'en']
+            'content.required' => ['de', 'en'],
         ]);
 
         $this->translation = Translation::factory()->full()->create();

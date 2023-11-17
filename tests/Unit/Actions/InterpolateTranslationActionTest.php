@@ -22,11 +22,11 @@ class InterpolateTranslationActionTest extends TestCase
         $translation = Translation::factory()
             ->has(Text::factory([
                 'lang' => 'en',
-                'value' => 'Hello {FIRST_NAME} {LAST_NAME}. {VAR_1} is not {VAR_2}!'
+                'value' => 'Hello {FIRST_NAME} {LAST_NAME}. {VAR_1} is not {VAR_2}!',
             ]))
             ->has(Text::factory([
                 'lang' => 'de',
-                'value' => 'Hallo {FIRST_NAME} {LAST_NAME}. {VAR_1} ist nicht {VAR_2}!'
+                'value' => 'Hallo {FIRST_NAME} {LAST_NAME}. {VAR_1} ist nicht {VAR_2}!',
             ]))
             ->create();
 
@@ -34,7 +34,7 @@ class InterpolateTranslationActionTest extends TestCase
             'FIRST_NAME' => 'Test',
             'LAST_NAME' => 'User',
             'VAR_1' => 'A',
-            'VAR_2' => 'B'
+            'VAR_2' => 'B',
         ];
 
         $actual = (new InterpolateTranslationAction)($translation, $vars);

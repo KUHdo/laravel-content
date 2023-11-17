@@ -11,5 +11,5 @@ return [
 
     'prefix' => '',
 
-    'middleware' => ['web']
+    'middleware' => ['web'],
 ];

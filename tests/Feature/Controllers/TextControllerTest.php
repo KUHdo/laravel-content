@@ -41,7 +41,7 @@ class TextControllerTest extends TestCase
         $content = Content::factory()->for(Contentable::factory())->create();
         $data = [
             'lang' => 'de',
-            'value' => 'Hallo Welt!'
+            'value' => 'Hallo Welt!',
         ];
 
         $response = $this->post(route('contents.texts.store', $content), $data);
@@ -78,7 +78,7 @@ class TextControllerTest extends TestCase
         $content = Content::factory()->for(Contentable::factory())->create();
         $text = $content->translation->texts()->get()->random();
         $data = [
-            'value' => 'Hello World!'
+            'value' => 'Hello World!',
         ];
 
         $response = $this->patch(route('contents.texts.update', ['content' => $content, 'text' => $text]), $data);

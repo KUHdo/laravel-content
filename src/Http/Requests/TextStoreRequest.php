@@ -14,7 +14,7 @@ class TextStoreRequest extends FormRequest
     {
         return [
             'lang' => ['required', Rule::in(config('content.locales'))],
-            'value' => ['required', 'string']
+            'value' => ['required', 'string'],
         ];
     }
 }

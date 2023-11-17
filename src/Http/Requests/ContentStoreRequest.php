@@ -17,7 +17,7 @@ class ContentStoreRequest extends FormRequest
             'texts.*.lang' => 'required|string',
             'texts.*.value' => 'required|string',
             'contentable_type' => 'required|string',
-            'contentable_id' => 'required|int'
+            'contentable_id' => 'required|int',
         ];
     }
 }

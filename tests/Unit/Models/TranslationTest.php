@@ -64,7 +64,7 @@ class TranslationTest extends TestCase
     {
         config([
             'content.locales' => ['en', 'de'],
-            'content.fallback' => 'de'
+            'content.fallback' => 'de',
         ]);
 
         $translation = Translation::factory()->full()->create();

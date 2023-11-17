@@ -16,7 +16,7 @@ class ContentFactory extends Factory
     public function definition(): array
     {
         return [
-            'translation_id' => Translation::factory()->full()
+            'translation_id' => Translation::factory()->full(),
         ];
     }
 }
