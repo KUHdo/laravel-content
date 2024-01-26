@@ -21,8 +21,8 @@ trait HasContents
      */
     public function getContent(string $slug, array $vars = null): string
     {
-        $content = $this->contents()->whereSlug($slug)->get();
+        $content = $this->contents()->whereSlug($slug)->firstOrFail();
 
-        return isset($vars) ? $content[0]->text($vars) : $content[0]->text;
+        return isset($vars) ? $content->text($vars) : $content->text;
     }
 }
