@@ -19,7 +19,7 @@ trait HasContents
      * Here the contents text will be returned. Content will be provided by slug.
      * If there is vars, like placeholder for text injection, it will be injected before text is returned.
      */
-    public function getContent(string $slug, array $vars = null): string
+    public function getContent(string $slug, ?array $vars = null): string
     {
         $content = $this->contents()->whereSlug($slug)->firstOrFail();
 
