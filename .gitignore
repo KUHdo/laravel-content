@@ -13,3 +13,4 @@ test-reports/
 flake.*
 .direnv/
 .bin
+.phpunit.cache

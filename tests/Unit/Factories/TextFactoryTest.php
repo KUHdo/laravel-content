@@ -22,7 +22,7 @@ class TextFactoryTest extends TestCase
         $texts = Text::factory()->count(100)->make();
 
         $this->assertEqualsCanonicalizing(
-            $texts->pluck('lang')->unique()->toArray(),
+            $texts->pluck('lang')->unique()->values()->toArray(),
             config('content.locales')
         );
     }

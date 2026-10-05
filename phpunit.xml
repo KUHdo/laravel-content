@@ -3,9 +3,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         bootstrap="vendor/autoload.php"
         colors="true"
-        verbose="true"
         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-        printerClass="NunoMaduro\Collision\Adapters\Phpunit\Printer"
 >
     <testsuites>
         <testsuite name="Unit">
@@ -16,10 +14,13 @@
         </testsuite>
     </testsuites>
 
-    <coverage>
+    <source>
         <include>
             <directory suffix=".php">src/</directory>
         </include>
+    </source>
+
+    <coverage>
         <report>
             <html outputDirectory="test-reports/coverage"/>
             <text outputFile="test-reports/coverage.txt"/>
